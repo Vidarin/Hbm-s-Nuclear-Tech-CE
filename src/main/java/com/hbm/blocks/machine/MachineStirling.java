@@ -10,6 +10,7 @@ import com.hbm.blocks.ITooltipProvider;
 import com.hbm.blocks.ModBlocks;
 import com.hbm.items.ModItems;
 import com.hbm.lib.ForgeDirection;
+import com.hbm.lib.HBMSoundHandler;
 import com.hbm.tileentity.TileEntityProxyCombo;
 import com.hbm.tileentity.machine.TileEntityStirling;
 import com.hbm.util.BobMathUtil;
@@ -22,6 +23,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -29,8 +32,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
 
 public class MachineStirling extends BlockDummyable implements ILookOverlay, ITooltipProvider, IBlockMulti {
 
-    public MachineStirling() {
-        super(Material.iron);
+    public MachineStirling( String name) {
+        super(Material.IRON, name);
     }
 
     @Override
@@ -80,14 +83,14 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
             if(pos == null)
                 return false;
 
-            TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(pos[0], pos[1], pos[2]);
+            TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
             int meta = stirling.getGeatMeta();
 
-            if(!stirling.hasCog && player.getHeldItem() != null && player.getHeldItem().getItem() == ModItems.gear_large && player.getHeldItem().getItemDamage() == meta) {
+            if(!stirling.hasCog && player.getHeldItem() != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.gear_large && player.getHeldItem().getItemDamage() == meta) {
                 player.getHeldItem().stackSize--;
                 stirling.hasCog = true;
                 stirling.markDirty();
-                world.playSoundEffect(x + 0.5, y + 0.5, z + 0.5, "hbm:item.upgradePlug", 1.5F, 0.75F);
+                world.playSound(null, x + 0.5, y + 0.5, z + 0.5, HBMSoundHandler.upgradePlug, SoundCategory.PLAYERS, 1.5F, 0.75F);
                 return true;
             }
         }
@@ -153,7 +156,7 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
         if(pos == null)
             return;
 
-        TileEntity te = world.getTileEntity(pos[0], pos[1], pos[2]);
+        TileEntity te = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
 
         if(!(te instanceof TileEntityStirling))
             return;

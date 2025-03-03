@@ -186,12 +186,13 @@ public class TileEntityStirling extends TileEntityLoadedBase implements INBTPack
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound nbt) {
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
 
         nbt.setLong("powerBuffer", powerBuffer);
         nbt.setBoolean("hasCog", hasCog);
         nbt.setInteger("overspeed", overspeed);
+        return nbt;
     }
 
     @Override
@@ -213,18 +214,12 @@ public class TileEntityStirling extends TileEntityLoadedBase implements INBTPack
 
     @Override
     public AxisAlignedBB getRenderBoundingBox() {
-
-        if(bb == null) {
-            bb = AxisAlignedBB.getBoundingBox(
-                    xCoord - 1,
-                    yCoord,
-                    zCoord - 1,
-                    xCoord + 2,
-                    yCoord + 2,
-                    zCoord + 2
+        if (bb == null) {
+            bb = new AxisAlignedBB(
+                    pos.add(-1, 0, -1),
+                    pos.add(2, 2, 2)
             );
         }
-
         return bb;
     }
 
