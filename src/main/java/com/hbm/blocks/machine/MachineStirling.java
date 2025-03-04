@@ -186,7 +186,8 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flagIn){
-        this.addStandardInfo(stack, world, tooltip, flagIn);
+        addStandardInfo(tooltip);
+        super.addInformation(stack, world, tooltip, flagIn);
     }
 
     @Override
