@@ -1,13 +1,6 @@
 package com.hbm.blocks.machine;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hbm.blocks.BlockDummyable;
-import com.hbm.blocks.IBlockMulti;
-import com.hbm.blocks.ILookOverlay;
-import com.hbm.blocks.ITooltipProvider;
-import com.hbm.blocks.ModBlocks;
+import com.hbm.blocks.*;
 import com.hbm.items.ModItems;
 import com.hbm.lib.ForgeDirection;
 import com.hbm.lib.HBMSoundHandler;
@@ -15,42 +8,50 @@ import com.hbm.tileentity.TileEntityProxyCombo;
 import com.hbm.tileentity.machine.TileEntityStirling;
 import com.hbm.util.BobMathUtil;
 import com.hbm.util.I18nUtil;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.Pre;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MachineStirling extends BlockDummyable implements ILookOverlay, ITooltipProvider, IBlockMulti {
 
-    public MachineStirling( String name) {
+    public MachineStirling(String name) {
         super(Material.IRON, name);
     }
 
     @Override
     public TileEntity createNewTileEntity(World world, int meta) {
 
-        if(meta >= 12)
+        if (meta >= 12)
             return new TileEntityStirling();
 
-        if(meta >= extra)
-            return new TileEntityProxyCombo().power();
+        if (meta >= extra)
+            return new TileEntityProxyCombo(false, true, false);
 
         return null;
     }
 
     @Override
     public int[] getDimensions() {
-        return new int[] {1, 0, 1, 1, 1, 1};
+        return new int[]{1, 0, 1, 1, 1, 1};
     }
 
     @Override
@@ -72,25 +73,25 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World world, BlockPos blockPos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        if(world.isRemote) {
+        if (world.isRemote) {
             return true;
 
-        } else if(!player.isSneaking()) {
-            int[] pos = this.findCore(world, x, y, z);
+        } else if (!player.isSneaking()) {
+            int[] pos = this.findCore(world, blockPos.getX(), blockPos.getY(), blockPos.getZ());
 
-            if(pos == null)
+            if (pos == null)
                 return false;
 
-            TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
+            TileEntityStirling stirling = (TileEntityStirling) world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
             int meta = stirling.getGeatMeta();
 
-            if(!stirling.hasCog && player.getHeldItem() != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.gear_large && player.getHeldItem().getItemDamage() == meta) {
-                player.getHeldItem().stackSize--;
+            if (!stirling.hasCog && player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.gear_large && player.getHeldItem(EnumHand.MAIN_HAND).getItemDamage() == meta) {
+                player.getHeldItem(EnumHand.MAIN_HAND).shrink(1);
                 stirling.hasCog = true;
                 stirling.markDirty();
-                world.playSound(null, x + 0.5, y + 0.5, z + 0.5, HBMSoundHandler.upgradePlug, SoundCategory.PLAYERS, 1.5F, 0.75F);
+                world.playSound(null, blockPos.getX() + 0.5, blockPos.getY() + 0.5, blockPos.getZ() + 0.5, HBMSoundHandler.upgradePlug, SoundCategory.PLAYERS, 1.5F, 0.75F);
                 return true;
             }
         }
@@ -99,49 +100,42 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
     }
 
     @Override
-        public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack itemStack) {
         super.onBlockPlacedBy(world, pos, state, player, itemStack);
 
-        if(itemStack.getItemDamage() == 1) {
-
-            int i = MathHelper.floor(player.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-            int o = -getOffset();
-
-            ForgeDirection dir = ForgeDirection.NORTH;
-            if(i == 0) dir = ForgeDirection.getOrientation(2);
-            if(i == 1) dir = ForgeDirection.getOrientation(5);
-            if(i == 2) dir = ForgeDirection.getOrientation(3);
-            if(i == 3) dir = ForgeDirection.getOrientation(4);
-
+        if (itemStack.getItemDamage() == 1) {
+            EnumFacing dir = player.getHorizontalFacing().getOpposite();
             dir = getDirModified(dir);
 
-            TileEntity te = world.getTileEntity(x + dir.offsetX * o, y + dir.offsetY * o, z + dir.offsetZ * o);
+            BlockPos offsetPos = pos.offset(dir, -getOffset());
 
-            if(te instanceof TileEntityStirling) {
+            TileEntity te = world.getTileEntity(offsetPos);
+            if (te instanceof TileEntityStirling) {
                 ((TileEntityStirling) te).hasCog = false;
             }
         }
     }
 
     @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+    public ArrayList<ItemStack> getDrops(IBlockAccess world, BlockPos blockPos, IBlockState state, int fortune) {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-        int count = quantityDropped(metadata, fortune, world.rand);
+        Random rand = world instanceof World ? ((World)world).rand : RANDOM;
+        int count = quantityDropped(state, fortune, rand);
         int dmg = 0;
 
-        int[] pos = this.findCore(world, x, y, z);
+        int[] pos = this.findCore(world, blockPos.getX(), blockPos.getY(), blockPos.getZ());
 
-        if(pos != null) {
-            TileEntityStirling stirling = (TileEntityStirling)world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
-            if(!stirling.hasCog) {
+        if (pos != null) {
+            TileEntityStirling stirling = (TileEntityStirling) world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
+            if (!stirling.hasCog) {
                 dmg = 1;
             }
         }
 
-        for(int i = 0; i < count; i++) {
-            Item item = getItemDropped(metadata, world.rand, fortune);
-            if(item != null) {
+        for (int i = 0; i < count; i++) {
+            Item item = getItemDropped(state, rand, fortune);
+            if (item != null) {
                 ret.add(new ItemStack(item, 1, dmg));
             }
         }
@@ -153,12 +147,12 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
 
         int[] pos = this.findCore(world, x, y, z);
 
-        if(pos == null)
+        if (pos == null)
             return;
 
         TileEntity te = world.getTileEntity(new BlockPos(pos[0], pos[1], pos[2]));
 
-        if(!(te instanceof TileEntityStirling))
+        if (!(te instanceof TileEntityStirling))
             return;
 
         TileEntityStirling stirling = (TileEntityStirling) te;
@@ -167,21 +161,21 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
         text.add(stirling.heat + "TU/t");
         text.add((stirling.hasCog ? stirling.powerBuffer : 0) + "HE/t");
 
-        if(this != ModBlocks.machine_stirling_creative) {
+        if (this != ModBlocks.machine_stirling_creative) {
             int maxHeat = stirling.maxHeat();
             double percent = (double) stirling.heat / (double) maxHeat;
-            int color = ((int) (0xFF - 0xFF * percent)) << 16 | ((int)(0xFF * percent) << 8);
+            int color = ((int) (0xFF - 0xFF * percent)) << 16 | ((int) (0xFF * percent) << 8);
 
-            if(percent > 1D)
+            if (percent > 1D)
                 color = 0xff0000;
 
             text.add("&[" + color + "&]" + ((stirling.heat * 1000 / maxHeat) / 10D) + "%");
 
-            if(stirling.heat > maxHeat) {
+            if (stirling.heat > maxHeat) {
                 text.add("&[" + (BobMathUtil.getBlink() ? 0xff0000 : 0xffff00) + "&]! ! ! OVERSPEED ! ! !");
             }
 
-            if(!stirling.hasCog) {
+            if (!stirling.hasCog) {
                 text.add("&[" + 0xff0000 + "&]Gear missing!");
             }
         }
@@ -189,9 +183,10 @@ public class MachineStirling extends BlockDummyable implements ILookOverlay, ITo
         ILookOverlay.printGeneric(event, I18nUtil.resolveKey(getTranslationKey() + ".name"), 0xffff00, 0x404000, text);
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean ext) {
-        this.addStandardInfo(stack, player, list, ext);
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flagIn){
+        this.addStandardInfo(stack, world, tooltip, flagIn);
     }
 
     @Override

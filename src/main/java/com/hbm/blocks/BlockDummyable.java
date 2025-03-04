@@ -223,7 +223,11 @@ public abstract class BlockDummyable extends BlockContainer implements ICustomBl
     protected ForgeDirection getDirModified(ForgeDirection dir) {
 		return dir;
 	}
-    
+
+	protected EnumFacing getDirModified(EnumFacing dir) {
+		return dir;
+	}
+
     protected boolean checkRequirement(World world, int x, int y, int z, ForgeDirection dir, int o) {
 		return MultiblockHandlerXR.checkSpace(world, x + dir.offsetX * o , y + dir.offsetY * o, z + dir.offsetZ * o, getDimensions(), x, y, z, dir);
 	}
