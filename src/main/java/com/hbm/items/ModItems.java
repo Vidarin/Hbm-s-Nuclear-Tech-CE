@@ -2173,6 +2173,7 @@ public class ModItems {
 	public static final Item upgrade_template = new ItemCustomLore("upgrade_template").setMaxStackSize(1).setCreativeTab(MainRegistry.partsTab);
 	public static final Item deuterium_filter = new ItemBase("deuterium_filter").setCreativeTab(MainRegistry.partsTab);
 	public static final Item sawblade = new ItemBase("sawblade").setCreativeTab(MainRegistry.partsTab);
+	public static final Item gear_large = new ItemGear("gear_large").setCreativeTab(MainRegistry.partsTab);
 	public static final Item crt_display = new ItemBase("crt_display").setCreativeTab(MainRegistry.partsTab);
 	public static final Item circuit_raw = new ItemBase("circuit_raw").setCreativeTab(MainRegistry.partsTab);
 	public static final Item circuit_aluminium = new ItemBase("circuit_aluminium").setCreativeTab(MainRegistry.partsTab);
