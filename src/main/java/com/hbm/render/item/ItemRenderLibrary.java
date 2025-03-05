@@ -536,7 +536,7 @@ public class ItemRenderLibrary {
 			public void renderCommon() {
 				GL11.glScaled(0.5, 0.5, 0.5);
 				GL11.glShadeModel(GL11.GL_SMOOTH);
-				bindTexture(ResourceManager.hydrotreater_tex);
+				bindTexture(Resou rceManager.hydrotreater_tex);
 				ResourceManager.hydrotreater.renderAll();
 				GL11.glShadeModel(GL11.GL_FLAT);
 			}});
