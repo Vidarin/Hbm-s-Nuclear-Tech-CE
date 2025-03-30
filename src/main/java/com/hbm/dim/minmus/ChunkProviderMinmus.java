@@ -38,9 +38,9 @@ public class ChunkProviderMinmus extends ChunkProviderCelestial {
 	public ChunkPrimer getChunkPrimer(int x, int z) {
 		ChunkPrimer buffer = super.getChunkPrimer(x, z);
 
-		caveGenerator.generate(worldObj, x, z, buffer);
-		smallCrater.generate(worldObj, x, z, buffer);
-		largeCrater.generate(worldObj, x, z, buffer);
+		caveGenerator.generate(world, x, z, buffer);
+		smallCrater.generate(world, x, z, buffer);
+		largeCrater.generate(world, x, z, buffer);
 		
 		return buffer;
 	}

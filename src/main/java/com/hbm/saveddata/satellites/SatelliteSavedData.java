@@ -67,11 +67,11 @@ public class SatelliteSavedData extends WorldSavedData {
     	return nbt;
 	}
 	
-	public static SatelliteSavedData getData(World worldObj) {
-		SatelliteSavedData data = (SatelliteSavedData)worldObj.getPerWorldStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
+	public static SatelliteSavedData getData(World world) {
+		SatelliteSavedData data = (SatelliteSavedData)world.getPerWorldStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
 	    if(data == null) {
-	        worldObj.getPerWorldStorage().setData("satellites", new SatelliteSavedData());
-	        data = (SatelliteSavedData)worldObj.getPerWorldStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
+	        world.getPerWorldStorage().setData("satellites", new SatelliteSavedData());
+	        data = (SatelliteSavedData)world.getPerWorldStorage().getOrLoadData(SatelliteSavedData.class, "satellites");
 	    }
 	    return data;
 	}

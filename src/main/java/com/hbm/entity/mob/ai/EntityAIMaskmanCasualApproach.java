@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 
-	World worldObj;
+	World world;
 	EntityCreature attacker;
 	int attackTick;
 	double speedTowardsTarget;
@@ -33,7 +33,7 @@ public class EntityAIMaskmanCasualApproach extends EntityAIBase {
 
 	public EntityAIMaskmanCasualApproach(EntityCreature owner, double speed, boolean longMemory) {
 		this.attacker = owner;
-		this.worldObj = owner.world;
+		this.world = owner.world;
 		this.speedTowardsTarget = speed;
 		this.longMemory = longMemory;
 		this.setMutexBits(3);

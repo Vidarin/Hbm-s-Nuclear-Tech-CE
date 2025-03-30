@@ -55,7 +55,7 @@ public class EntityRubble extends EntityThrowable {
         	this.setDead();
         	
     		world.playSound(this.posX, this.posY, this.posZ, HBMSoundHandler.blockDebris, SoundCategory.BLOCKS, 1.5F, 1.0F, true);
-            //worldObj.playAuxSFX(2001, (int)posX, (int)posY, (int)posZ, this.dataWatcher.getWatchableObjectInt(16) + (this.dataWatcher.getWatchableObjectInt(17) << 12));
+            //world.playAuxSFX(2001, (int)posX, (int)posY, (int)posZ, this.dataWatcher.getWatchableObjectInt(16) + (this.dataWatcher.getWatchableObjectInt(17) << 12));
     		if(!world.isRemote)
     			PacketDispatcher.wrapper.sendToAll(new ParticleBurstPacket((int)posX - 1, (int)posY, (int)posZ - 1, this.dataManager.get(BLOCKID), this.dataManager.get(BLOCKMETA)));
         }

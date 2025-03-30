@@ -16,7 +16,7 @@ public class ExplosionSolinium
 	public int lastposZ = 0;
 	public int radius;
 	public int radius2;
-	public World worldObj;
+	public World world;
 	private int n = 1;
 	private int nlimit;
 	private int shell;
@@ -65,7 +65,7 @@ public class ExplosionSolinium
 		this.posY = y;
 		this.posZ = z;
 		
-		this.worldObj = world;
+		this.world = world;
 		
 		this.radius = rad;
 		this.radius2 = this.radius * this.radius;
@@ -77,7 +77,7 @@ public class ExplosionSolinium
 	}
 	
 	public boolean update() {
-		if(!CompatibilityConfig.isWarDim(worldObj)){
+		if(!CompatibilityConfig.isWarDim(world)){
 			return true;
 		}
 		breakColumn(this.lastposX, this.lastposZ);
@@ -101,7 +101,7 @@ public class ExplosionSolinium
 			for (int y = (int)(dist / this.explosionCoefficient2); y > -dist / this.explosionCoefficient; y--)
 			{
 				pos.setPos(this.posX + x, this.posY + y, this.posZ + z);
-				ExplosionNukeGeneric.solinium(this.worldObj, pos);
+				ExplosionNukeGeneric.solinium(this.world, pos);
 			}
 		}
 	}

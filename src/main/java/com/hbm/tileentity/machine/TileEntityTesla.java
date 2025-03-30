@@ -77,11 +77,11 @@ public class TileEntityTesla extends TileEntityMachineBase implements ITickable,
 		}
 	}
 
-	public static List<double[]> zap(World worldObj, double x, double y, double z, double radius, Entity source) {
+	public static List<double[]> zap(World world, double x, double y, double z, double radius, Entity source) {
 
 		List<double[]> ret = new ArrayList<double[]>();
 		
-		List<EntityLivingBase> targets = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius));
+		List<EntityLivingBase> targets = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius));
 		
 		for(EntityLivingBase e : targets) {
 			
@@ -93,7 +93,7 @@ public class TileEntityTesla extends TileEntityMachineBase implements ITickable,
 			if(vec.length() > range)
 				continue;
 
-			if(Library.isObstructed(worldObj, x, y, z, e.posX, e.posY + e.height / 2, e.posZ))
+			if(Library.isObstructed(world, x, y, z, e.posX, e.posY + e.height / 2, e.posZ))
 				continue;
 			
 			if(e instanceof EntityTaintCrab) {
@@ -116,10 +116,10 @@ public class TileEntityTesla extends TileEntityMachineBase implements ITickable,
 			
 			if(!(e instanceof EntityPlayer && ArmorUtil.checkForFaraday((EntityPlayer)e)))
 				if(e.attackEntityFrom(ModDamageSource.electricity, MathHelper.clamp(0.5F * e.getMaxHealth() / (float)targets.size(), 3, 20)))
-					worldObj.playSound(null, e.posX, e.posY, e.posZ, HBMSoundHandler.tesla, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					world.playSound(null, e.posX, e.posY, e.posZ, HBMSoundHandler.tesla, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			
 			if(e instanceof EntityCreeper) {
-				e.onStruckByLightning(new EntityLightningBolt(worldObj, e.posX, e.posY, e.posZ, true));
+				e.onStruckByLightning(new EntityLightningBolt(world, e.posX, e.posY, e.posZ, true));
 			}
 			
 			if(e instanceof EntityNuclearCreeper) {
@@ -128,7 +128,7 @@ public class TileEntityTesla extends TileEntityMachineBase implements ITickable,
 			
 			double offset = 0;
 			
-			if(source != null && e instanceof EntityPlayer && worldObj.isRemote)
+			if(source != null && e instanceof EntityPlayer && world.isRemote)
 				offset = e.height;
 			
 			ret.add(new double[] {e.posX, e.posY + e.height / 2 - offset, e.posZ});

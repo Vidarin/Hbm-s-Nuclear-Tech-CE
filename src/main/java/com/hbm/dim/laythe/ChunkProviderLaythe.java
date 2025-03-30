@@ -53,10 +53,10 @@ public class ChunkProviderLaythe extends ChunkProviderCelestial {
 	public ChunkPrimer getChunkPrimer(int x, int z) {
 		ChunkPrimer buffer = super.getChunkPrimer(x, z);
 		
-		spires.generate(worldObj, x, z, buffer);
-		caveGenV3.generate(worldObj, x, z, buffer);
+		spires.generate(world, x, z, buffer);
+		caveGenV3.generate(world, x, z, buffer);
 		if(biomesForGeneration[0] == BiomeGenBaseLaythe.laythePolar) {
-			snowires.generate(worldObj, x, z, buffer);
+			snowires.generate(world, x, z, buffer);
 		}
 
 		return buffer;
@@ -65,7 +65,7 @@ public class ChunkProviderLaythe extends ChunkProviderCelestial {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public List getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
-		if(creatureType == EnumCreatureType.MONSTER && worldObj.getBlockState(pos.down()) == ModBlocks.tumor)
+		if(creatureType == EnumCreatureType.MONSTER && world.getBlockState(pos.down()) == ModBlocks.tumor)
 			return spawnedOfFlesh;
 
 		return super.getPossibleCreatures(creatureType, pos);

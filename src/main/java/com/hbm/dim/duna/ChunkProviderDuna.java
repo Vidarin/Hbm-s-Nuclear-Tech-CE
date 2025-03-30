@@ -30,7 +30,7 @@ public class ChunkProviderDuna extends ChunkProviderCelestial {
 
         if(biomesForGeneration[0] == BiomeGenBaseDuna.dunaLowlands) {
             // BEEG CAVES UNDER THE CANYONS
-            this.caveGenV2.generate(worldObj, x, z, buffer);
+            this.caveGenV2.generate(world, x, z, buffer);
         }
 		
 		return buffer;

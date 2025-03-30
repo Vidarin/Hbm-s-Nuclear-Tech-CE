@@ -385,7 +385,7 @@ public class EntityRocket extends Entity implements IProjectile {
                 for (i = 0; i < 4; ++i)
                 {
                 	this.world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);
-                	//this.worldObj.spawnEntityInWorld(new EntityGasFX(worldObj, this.posX - motionX/4*i, this.posY - motionY/4*i, this.posZ - motionZ/4*i, 0, 0, 0));
+                	//this.world.spawnEntityInWorld(new EntityGasFX(world, this.posX - motionX/4*i, this.posY - motionY/4*i, this.posZ - motionZ/4*i, 0, 0, 0));
                 }
             }
 

@@ -52,8 +52,8 @@ public class EntityBombletSelena extends EntityThrowable {
     		this.setDead();
         }
 
-		//if(!this.worldObj.isRemote)
-		//	this.worldObj.spawnEntityInWorld(new EntityOilSpillFX(this.worldObj, this.posX, this.posY, this.posZ, 0.0, 0.0, 0.0));
+		//if(!this.world.isRemote)
+		//	this.world.spawnEntityInWorld(new EntityOilSpillFX(this.world, this.posX, this.posY, this.posZ, 0.0, 0.0, 0.0));
 	}
 	
 	protected void rotation() {

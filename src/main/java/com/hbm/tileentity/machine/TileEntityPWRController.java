@@ -45,7 +45,7 @@ import net.minecraft.world.World;
 //import net.minecraftforge.common.util.ForgeDirection;
 
 //@Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityPWRController extends TileEntityMachineBase implements IGUIProvider, IControlReceiver, SimpleComponent, IFluidStandardTransceiver, CompatHandler.OCComponent {
+public class TileEntityPWRController extends TileEntityMachineBase implements IGUIProvider, IControlReceiver, SimpleComponent, IFluidStandardTransceiver, CompatHandler.OCComponent, IInventory {
 
     public FluidTankNTM[] tanks;
     public long coreHeat;
@@ -164,7 +164,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
     @Override
     public void updateEntity() {
 
-        if(!worldObj.isRemote) {
+        if(!world.isRemote) {
 
             this.tanks[0].setType(2, slots);
             setupTanks();
@@ -175,11 +175,11 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
             int chunkZ = zCoord >> 4;
 
             //since fluid sources are often not within 1 chunk, we just do 2 chunks distance and call it a day
-            if(!worldObj.getChunkProvider().chunkExists(chunkX, chunkZ) ||
-                    !worldObj.getChunkProvider().chunkExists(chunkX + 2, chunkZ + 2) ||
-                    !worldObj.getChunkProvider().chunkExists(chunkX + 2, chunkZ - 2) ||
-                    !worldObj.getChunkProvider().chunkExists(chunkX - 2, chunkZ + 2) ||
-                    !worldObj.getChunkProvider().chunkExists(chunkX - 2, chunkZ - 2)) {
+            if(!world.getChunkProvider().chunkExists(chunkX, chunkZ) ||
+                    !world.getChunkProvider().chunkExists(chunkX + 2, chunkZ + 2) ||
+                    !world.getChunkProvider().chunkExists(chunkX + 2, chunkZ - 2) ||
+                    !world.getChunkProvider().chunkExists(chunkX - 2, chunkZ + 2) ||
+                    !world.getChunkProvider().chunkExists(chunkX - 2, chunkZ - 2)) {
                 this.unloadDelay = 60;
             }
 
@@ -188,8 +188,8 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
                     for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
                         BlockPos portPos = pos.offset(dir);
 
-                        if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], worldObj, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
-                        if(worldObj.getTotalWorldTime() % 20 == 0) this.trySubscribe(tanks[0].getTankType(), worldObj, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
+                        if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
+                        if(world.getTotalWorldTime() % 20 == 0) this.trySubscribe(tanks[0].getTankType(), world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
                     }
                 }
 
@@ -301,16 +301,16 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
 
     protected void meltDown() {
 
-        worldObj.func_147480_a(xCoord, yCoord, zCoord, false);
+        world.func_147480_a(xCoord, yCoord, zCoord, false);
 
         double x = 0;
         double y = 0;
         double z = 0;
 
         for(BlockPos pos : this.rods) {
-            Block b = worldObj.getBlock(pos.getX(), pos.getY(), pos.getZ());
-            b.breakBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), b, worldObj.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));
-            worldObj.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.corium_block, 5, 3);
+            Block b = world.getBlock(pos.getX(), pos.getY(), pos.getZ());
+            b.breakBlock(world, pos.getX(), pos.getY(), pos.getZ(), b, world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()));
+            world.setBlock(pos.getX(), pos.getY(), pos.getZ(), ModBlocks.corium_block, 5, 3);
 
             x += pos.getX() + 0.5;
             y += pos.getY() + 0.5;
@@ -321,7 +321,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
         y /= rods.size();
         z /= rods.size();
 
-        worldObj.newExplosion(null, x, y, z, 15F, true, true);
+        world.newExplosion(null, x, y, z, 15F, true, true);
     }
 
     @Override

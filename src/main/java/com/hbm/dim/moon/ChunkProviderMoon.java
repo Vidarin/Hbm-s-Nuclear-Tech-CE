@@ -42,10 +42,10 @@ public class ChunkProviderMoon extends ChunkProviderCelestial {
 		ChunkPrimer buffer = super.getChunkPrimer(x, z);
 		
 		// NEW CAVES
-		caveGenV3.generate(worldObj, x, z, buffer);
-		rgen.generate(worldObj, x, z, buffer);
-		smallCrater.generate(worldObj, x, z, buffer);
-		largeCrater.generate(worldObj, x, z, buffer);
+		caveGenV3.generate(world, x, z, buffer);
+		rgen.generate(world, x, z, buffer);
+		smallCrater.generate(world, x, z, buffer);
+		largeCrater.generate(world, x, z, buffer);
 
 		return buffer;
 	}

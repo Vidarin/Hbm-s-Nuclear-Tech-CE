@@ -1,22 +1,17 @@
-package com.hbm.blocks.machine;
+package com.hbm.blocks.generic;
 
-import java.util.List;
-
-import com.hbm.blocks.BlockBase;
 import com.hbm.blocks.ITooltipProvider;
-
-import com.hbm.blocks.generic.BlockBakeBase;
 import com.hbm.items.IDynamicModels;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class BlockPillarPWR extends BlockBakeBase implements ITooltipProvider, IDynamicModels {
+import java.util.List;
 
-    public BlockPillarPWR(Material mat, String name, String top, String side) {
-        super(mat, name, top, side);
+public class BlockGenericPWR extends BlockBakeBase implements ITooltipProvider, IDynamicModels {
+    public BlockGenericPWR(Material mat, String name, String texture) {
+        super(mat, name, texture);
     }
 
     @Override

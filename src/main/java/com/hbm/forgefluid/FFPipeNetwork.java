@@ -178,7 +178,7 @@ public class FFPipeNetwork implements IFluidHandler {
 	public static FFPipeNetwork buildNewNetwork(TileEntity pipe) {
 		FFPipeNetwork net = null;
 		if (pipe instanceof IFluidPipe) {
-//			if(!pipe.getWorldObj().isRemote)
+//			if(!pipe.getworld().isRemote)
 			//	return null;
 			IFluidPipe fPipe = (IFluidPipe) pipe;
 			fPipe.getNetwork().Destroy();

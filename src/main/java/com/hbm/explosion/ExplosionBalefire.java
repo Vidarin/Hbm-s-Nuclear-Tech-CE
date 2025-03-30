@@ -17,7 +17,7 @@ public class ExplosionBalefire {
 	public int lastposZ = 0;
 	public int radius;
 	public int radius2;
-	public World worldObj;
+	public World world;
 	private int n = 1;
 	private int nlimit;
 	private int shell;
@@ -60,7 +60,7 @@ public class ExplosionBalefire {
 		this.posY = y;
 		this.posZ = z;
 		
-		this.worldObj = world;
+		this.world = world;
 		
 		this.radius = rad;
 		this.radius2 = this.radius * this.radius;
@@ -92,7 +92,7 @@ public class ExplosionBalefire {
 			int pX = posX + x;
 			int pZ = posZ + z;
 			
-			int y  = worldObj.getHeight(pX, pZ);
+			int y  = world.getHeight(pX, pZ);
 			int maxdepth = (int) (10 + radius * 0.25);
 			int voidDepth = (int) ((maxdepth * dist / radius) + (Math.sin(dist * 0.15 + 2) * 2));//
 			
@@ -100,46 +100,46 @@ public class ExplosionBalefire {
 			
 			while(y > depth) {
 
-				Block b = worldObj.getBlockState(new BlockPos(pX, y, pZ)).getBlock();
+				Block b = world.getBlockState(new BlockPos(pX, y, pZ)).getBlock();
 				
 				if(b == ModBlocks.block_schrabidium_cluster) {
 					
-					if(worldObj.rand.nextInt(10) == 0) {
-						worldObj.setBlockState(new BlockPos(pX, y + 1, pZ), ModBlocks.balefire.getDefaultState());
-						worldObj.setBlockState(new BlockPos(pX, y, pZ), ModBlocks.block_euphemium_cluster.getStateFromMeta(b.getMetaFromState(worldObj.getBlockState(new BlockPos(pX, y, pZ)))), 3);
+					if(world.rand.nextInt(10) == 0) {
+						world.setBlockState(new BlockPos(pX, y + 1, pZ), ModBlocks.balefire.getDefaultState());
+						world.setBlockState(new BlockPos(pX, y, pZ), ModBlocks.block_euphemium_cluster.getStateFromMeta(b.getMetaFromState(world.getBlockState(new BlockPos(pX, y, pZ)))), 3);
 					}
 					return;
 				} else if(b == ModBlocks.cmb_brick_reinforced){
-					if(worldObj.rand.nextInt(10) == 0) {
-						worldObj.setBlockState(new BlockPos(pX, y + 1, pZ), ModBlocks.balefire.getDefaultState());
+					if(world.rand.nextInt(10) == 0) {
+						world.setBlockState(new BlockPos(pX, y + 1, pZ), ModBlocks.balefire.getDefaultState());
 					}
 					return;
 				}
 				
-				worldObj.setBlockToAir(new BlockPos(pX, y, pZ));
+				world.setBlockToAir(new BlockPos(pX, y, pZ));
 				
 				y--;
 			}
 			
-			if(worldObj.rand.nextInt(10) == 0) {
-				worldObj.setBlockState(new BlockPos(pX, depth + 1, pZ), ModBlocks.balefire.getDefaultState());
+			if(world.rand.nextInt(10) == 0) {
+				world.setBlockState(new BlockPos(pX, depth + 1, pZ), ModBlocks.balefire.getDefaultState());
 				
-				Block b = worldObj.getBlockState(new BlockPos(pX, y, pZ)).getBlock();
+				Block b = world.getBlockState(new BlockPos(pX, y, pZ)).getBlock();
 				
 				if(b == ModBlocks.block_schrabidium_cluster)
-					worldObj.setBlockState(new BlockPos(pX, y, pZ), ModBlocks.block_euphemium_cluster.getStateFromMeta(b.getMetaFromState(worldObj.getBlockState(new BlockPos(pX, y, pZ)))), 3);
+					world.setBlockState(new BlockPos(pX, y, pZ), ModBlocks.block_euphemium_cluster.getStateFromMeta(b.getMetaFromState(world.getBlockState(new BlockPos(pX, y, pZ)))), 3);
 			}
 			int startDepth = (int)(6 * dist / radius);
 			for(int i = 0; i <= startDepth; i++) {
-				if(worldObj.getBlockState(new BlockPos(pX, depth-i, pZ)).getBlock() == Blocks.STONE){
+				if(world.getBlockState(new BlockPos(pX, depth-i, pZ)).getBlock() == Blocks.STONE){
 					switch(startDepth-i){
-						case 6: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_core.getDefaultState()); break;
-						case 5: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_4.getDefaultState()); break;
-						case 4: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_3.getDefaultState()); break;
-						case 3: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_2.getDefaultState()); break;
-						case 2: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_1.getDefaultState()); break;
-						case 1: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_0.getDefaultState()); break;
-						case 0: worldObj.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_slaked.getDefaultState()); break;
+						case 6: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_core.getDefaultState()); break;
+						case 5: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_4.getDefaultState()); break;
+						case 4: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_3.getDefaultState()); break;
+						case 3: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_2.getDefaultState()); break;
+						case 2: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_1.getDefaultState()); break;
+						case 1: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_0.getDefaultState()); break;
+						case 0: world.setBlockState(new BlockPos(pX, depth-i, pZ), ModBlocks.baleonitite_slaked.getDefaultState()); break;
 					}
 				}
 			}

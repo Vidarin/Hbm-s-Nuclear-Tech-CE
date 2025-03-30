@@ -55,7 +55,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 	
 
 	// Now for the regular stuff, changing these won't change gen, just break things
-	protected World worldObj;
+	protected World world;
 	protected final boolean mapFeaturesEnabled;
 	protected Random rand;
 	
@@ -78,7 +78,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 	private double[] heightOrderBuffer;
 
 	public ChunkProviderCelestial(World world, long seed, boolean hasMapFeatures) {
-		this.worldObj = world;
+		this.world = world;
 		this.mapFeaturesEnabled = hasMapFeatures;
 
 		this.rand = new Random(seed);
@@ -119,14 +119,14 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 	protected ChunkPrimer getChunkPrimer(int x, int z) {
 		ChunkPrimer chunkPrimer = new ChunkPrimer();
 		generateBlocks(x, z, chunkPrimer);
-		biomesForGeneration = this.worldObj.getBiomeProvider().getBiomes(biomesForGeneration, x * 16, z * 16, 16, 16);
+		biomesForGeneration = this.world.getBiomeProvider().getBiomes(biomesForGeneration, x * 16, z * 16, 16, 16);
 		replaceBlocksForBiome(x, z, chunkPrimer, biomesForGeneration);
 		return chunkPrimer;
 	}
 
 	// Fills in the chunk with stone, water, and air
 	protected void generateBlocks(int x, int z, ChunkPrimer chunkPrimer) {
-		biomesForGeneration = worldObj.getBiomeProvider().getBiomesForGeneration(biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
+		biomesForGeneration = world.getBiomeProvider().getBiomesForGeneration(biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
 		generateNoiseField(x * 4, 0, z * 4);
 
 		for (int k = 0; k < 4; ++k) {
@@ -298,7 +298,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 		for (int k = 0; k < 16; ++k) {
 			for (int l = 0; l < 16; ++l) {
 				Biome biome = biomes[l + k * 16];
-				biome.genTerrainBlocks(worldObj, rand, chunkPrimer, x * 16 + k, z * 16 + l, stoneNoise[l + k * 16]);
+				biome.genTerrainBlocks(world, rand, chunkPrimer, x * 16 + k, z * 16 + l, stoneNoise[l + k * 16]);
 			}
 		}
 	}
@@ -308,7 +308,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 		rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
 
 		ChunkPrimer ablock = getChunkPrimer(x, z);
-		Chunk chunk = new Chunk(worldObj, ablock, x, z);
+		Chunk chunk = new Chunk(world, ablock, x, z);
 		byte[] biomes = chunk.getBiomeArray();
 		for(int k = 0; k < biomes.length; ++k) {
 			biomes[k] = (byte) Biome.getIdForBiome(biomesForGeneration[k]);
@@ -328,13 +328,13 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 		int k = x * 16;
 		int l = z * 16;
 		BlockPos blockpos = new BlockPos(k, 0, l);
-		Biome biome = this.worldObj.getBiome(blockpos.add(16, 0, 16));
-		rand.setSeed(worldObj.getSeed());
+		Biome biome = this.world.getBiome(blockpos.add(16, 0, 16));
+		rand.setSeed(world.getSeed());
 		long i1 = rand.nextLong() / 2L * 2L + 1L;
 		long j1 = rand.nextLong() / 2L * 2L + 1L;
-		rand.setSeed((long) x * i1 + (long) z * j1 ^ worldObj.getSeed());
-		biome.decorate(this.worldObj, this.rand, blockpos);
-		WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, k + 8, l + 8, 16, 16, this.rand);
+		rand.setSeed((long) x * i1 + (long) z * j1 ^ world.getSeed());
+		biome.decorate(this.world, this.rand, blockpos);
+		WorldEntitySpawner.performWorldGenSpawning(this.world, biome, k + 8, l + 8, 16, 16, this.rand);
 
 		BlockFalling.fallInstantly = false;
 	}
@@ -346,7 +346,7 @@ public abstract class ChunkProviderCelestial implements IChunkGenerator {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
-        Biome biomegenbase = this.worldObj.getBiome(pos);
+        Biome biomegenbase = this.world.getBiome(pos);
 		if(biomegenbase instanceof BiomeGenCraterBase) return new ArrayList<Biome.SpawnListEntry>();
         return biomegenbase.getSpawnableList(creatureType);
 	}

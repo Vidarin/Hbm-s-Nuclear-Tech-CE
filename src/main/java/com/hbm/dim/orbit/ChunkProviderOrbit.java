@@ -13,15 +13,15 @@ import net.minecraft.world.gen.IChunkGenerator;
 
 public class ChunkProviderOrbit implements IChunkGenerator {
 
-	protected World worldObj;
+	protected World world;
 
 	public ChunkProviderOrbit(World world) {
-		this.worldObj = world;
+		this.world = world;
 	}
 
 	@Override
 	public Chunk generateChunk(int x, int z) {
-		Chunk chunk = new Chunk(worldObj, new ChunkPrimer(), x, z);
+		Chunk chunk = new Chunk(world, new ChunkPrimer(), x, z);
 			byte[] biomes = chunk.getBiomeArray();
 			for(int k = 0; k < biomes.length; ++k) {
 				biomes[k] = (byte) SpaceConfig.orbitBiome;

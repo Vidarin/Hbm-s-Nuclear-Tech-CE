@@ -348,7 +348,7 @@ public class EntityRocketHoming extends Entity implements IProjectile {
                         {
                             if (!this.world.isRemote)
                             {
-                            	//this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
+                            	//this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
                             	ExplosionLarge.explode(world, posX, posY, posZ, 5, true, false, true);
                             }
                         	this.setDead();
@@ -358,7 +358,7 @@ public class EntityRocketHoming extends Entity implements IProjectile {
                     {
                         if (!this.world.isRemote)
                         {
-                        	//this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
+                        	//this.world.createExplosion(this, this.posX, this.posY, this.posZ, 2.5F, true);
                         	ExplosionLarge.explode(world, posX, posY, posZ, 5, true, false, true);
                         }
                     	this.setDead();
@@ -396,7 +396,7 @@ public class EntityRocketHoming extends Entity implements IProjectile {
 
             //for (i = 0; i < 4; ++i)
             {
-                //this.worldObj.spawnParticle("cloud", this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);
+                //this.world.spawnParticle("cloud", this.posX, this.posY, this.posZ, /*0, 0, 0 this.posX + this.motionX * (double)i / 4.0D, this.posY + this.motionY * (double)i / 4.0D, this.posZ + this.motionZ * (double)i / 4.0D,*/ -this.motionX/4, -this.motionY/4, -this.motionZ/4);
                 if(!world.isRemote && this.ticksExisted > 1)
                     this.world.spawnEntity(new EntityTSmokeFX(world, this.posX, this.posY, this.posZ, 0, 0, 0));
             }

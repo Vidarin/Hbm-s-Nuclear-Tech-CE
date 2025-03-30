@@ -25,7 +25,7 @@ public class RadiationSavedData extends WorldSavedData {
 	//Drillgon200: I'm pretty sure this doesn't actually help since all the world saved datas are cached in a map anyway...
 	private static RadiationSavedData openInstance;
 	
-    public World worldObj;
+    public World world;
 
 	public RadiationSavedData(String p_i2141_1_) {
 		super(p_i2141_1_);
@@ -34,7 +34,7 @@ public class RadiationSavedData extends WorldSavedData {
     public RadiationSavedData(World p_i1678_1_)
     {
         super("radiation");
-        this.worldObj = p_i1678_1_;
+        this.world = p_i1678_1_;
         this.markDirty();
     }
     
@@ -56,7 +56,7 @@ public class RadiationSavedData extends WorldSavedData {
     
     public void jettisonData() {
     	if(GeneralConfig.advancedRadiation){
-    		RadiationSystemNT.jettisonData(worldObj);
+    		RadiationSystemNT.jettisonData(world);
     		return;
     	}
     	contamination.clear();
@@ -79,7 +79,7 @@ public class RadiationSavedData extends WorldSavedData {
     
     public void setRadForCoord(BlockPos pos, float radiation) {
     	if(GeneralConfig.advancedRadiation){
-    		RadiationSystemNT.setRadForCoord(worldObj, pos, radiation);
+    		RadiationSystemNT.setRadForCoord(world, pos, radiation);
     		return;
     	}
     	ChunkPos cPos = new ChunkPos(pos);
@@ -109,7 +109,7 @@ public class RadiationSavedData extends WorldSavedData {
     
     public float getRadNumFromCoord(BlockPos pos) {
     	if(GeneralConfig.advancedRadiation){
-    		return RadiationSystemNT.getRadForCoord(worldObj, pos);
+    		return RadiationSystemNT.getRadForCoord(world, pos);
     	}
     	RadiationSaveStructure rad = contamination.get(new ChunkPos(pos));
     	if(rad != null)
@@ -136,13 +136,13 @@ public class RadiationSavedData extends WorldSavedData {
 					struct.radiation = 0;
 				}
 				
-				if(struct.radiation > RadiationConfig.fogRad && worldObj != null && worldObj.rand.nextInt(RadiationConfig.fogCh) == 0 && worldObj.getChunk(struct.chunkX, struct.chunkY).isLoaded()) {
+				if(struct.radiation > RadiationConfig.fogRad && world != null && world.rand.nextInt(RadiationConfig.fogCh) == 0 && world.getChunk(struct.chunkX, struct.chunkY).isLoaded()) {
 					
-					int x = struct.chunkX * 16 + worldObj.rand.nextInt(16);
-					int z = struct.chunkY * 16 + worldObj.rand.nextInt(16);
-					int y = worldObj.getHeight(x, z) + worldObj.rand.nextInt(5);
+					int x = struct.chunkX * 16 + world.rand.nextInt(16);
+					int z = struct.chunkY * 16 + world.rand.nextInt(16);
+					int y = world.getHeight(x, z) + world.rand.nextInt(5);
 					
-					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(x, y, z, 3), new TargetPoint(worldObj.provider.getDimension(), x, y, z, 100));
+					PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacket(x, y, z, 3), new TargetPoint(world.provider.getDimension(), x, y, z, 100));
 				}
     			
     			if(struct.radiation > 1) {
@@ -209,32 +209,32 @@ public class RadiationSavedData extends WorldSavedData {
 		return nbt;
 	}
 	
-	public static RadiationSavedData getData(World worldObj) {
+	public static RadiationSavedData getData(World world) {
 		
-		if(openInstance != null && openInstance.worldObj == worldObj)
+		if(openInstance != null && openInstance.world == world)
 			return openInstance;
 
-		RadiationSavedData data = (RadiationSavedData)worldObj.getPerWorldStorage().getOrLoadData(RadiationSavedData.class, "radiation");
+		RadiationSavedData data = (RadiationSavedData)world.getPerWorldStorage().getOrLoadData(RadiationSavedData.class, "radiation");
 	    if(data == null) {
-	        worldObj.getPerWorldStorage().setData("radiation", new RadiationSavedData(worldObj));
+	        world.getPerWorldStorage().setData("radiation", new RadiationSavedData(world));
 	        
-	        data = (RadiationSavedData)worldObj.getPerWorldStorage().getOrLoadData(RadiationSavedData.class, "radiation");
+	        data = (RadiationSavedData)world.getPerWorldStorage().getOrLoadData(RadiationSavedData.class, "radiation");
 	    }
 	    
-	    data.worldObj = worldObj;
+	    data.world = world;
 	    openInstance  = data;
 	    
 	    return openInstance;
 	}
 	
-	public static void incrementRad(World worldObj, BlockPos pos, float rad, float maxRad) {
+	public static void incrementRad(World world, BlockPos pos, float rad, float maxRad) {
 		if(GeneralConfig.advancedRadiation){
-			RadiationSystemNT.incrementRad(worldObj, pos, rad, maxRad);
+			RadiationSystemNT.incrementRad(world, pos, rad, maxRad);
 			return;
 		}
-		RadiationSavedData data = getData(worldObj);
+		RadiationSavedData data = getData(world);
 		
-		Chunk chunk = worldObj.getChunk(pos);
+		Chunk chunk = world.getChunk(pos);
 		
 		float r = data.getRadNumFromChunkCoord(chunk.x, chunk.z);
 		
@@ -244,14 +244,14 @@ public class RadiationSavedData extends WorldSavedData {
 		}
 	}
 	
-	public static void decrementRad(World worldObj, BlockPos pos, float rad) {
+	public static void decrementRad(World world, BlockPos pos, float rad) {
 		if(GeneralConfig.advancedRadiation){
-			RadiationSystemNT.decrementRad(worldObj, pos, rad);
+			RadiationSystemNT.decrementRad(world, pos, rad);
 			return;
 		}
-		RadiationSavedData data = getData(worldObj);
+		RadiationSavedData data = getData(world);
 		
-		Chunk chunk = worldObj.getChunk(pos);
+		Chunk chunk = world.getChunk(pos);
 		
 		float r = data.getRadNumFromChunkCoord(chunk.x, chunk.z);
 		

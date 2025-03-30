@@ -207,8 +207,8 @@ public class TileEntityMachineTurbofan extends TileEntityMachinePolluting implem
 						PacketDispatcher.wrapper.sendToAllAround(new AuxParticlePacketNT(data, this.pos.getX() + 0.5F - dir.offsetX * (3 - i), this.pos.getY() + 1.5F, this.pos.getZ() + 0.5F - dir.offsetZ * (3 - i)), new TargetPoint(world.provider.getDimension(), pos.getX(), pos.getY(), pos.getZ(), 150));
 					}
 
-					/*if(this.afterburner > 90 && worldObj.rand.nextInt(60) == 0) {
-						worldObj.newExplosion(null, xCoord + 0.5 + dir.offsetX * 3.5, yCoord + 0.5, zCoord + 0.5 + dir.offsetZ * 3.5, 3F, false, false);
+					/*if(this.afterburner > 90 && world.rand.nextInt(60) == 0) {
+						world.newExplosion(null, xCoord + 0.5 + dir.offsetX * 3.5, yCoord + 0.5, zCoord + 0.5 + dir.offsetZ * 3.5, 3F, false, false);
 					}*/
 
 					if(this.afterburner > 90 && world.rand.nextInt(30) == 0) {

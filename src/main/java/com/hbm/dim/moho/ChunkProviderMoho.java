@@ -45,11 +45,11 @@ public class ChunkProviderMoho extends ChunkProviderCelestial {
 		ChunkPrimer buffer = super.getChunkPrimer(x, z);
 
 		// how many times do I gotta say BEEEEG
-		caveGenV2.generate(worldObj, x, z, buffer);
-		rgen.generate(worldObj, x, z, buffer);
-		smallCrater.generate(worldObj, x, z, buffer);
-		largeCrater.generate(worldObj, x, z, buffer);
-		volcano.generate(worldObj, x, z, buffer);
+		caveGenV2.generate(world, x, z, buffer);
+		rgen.generate(world, x, z, buffer);
+		smallCrater.generate(world, x, z, buffer);
+		largeCrater.generate(world, x, z, buffer);
+		volcano.generate(world, x, z, buffer);
 
 		return buffer;
 	}

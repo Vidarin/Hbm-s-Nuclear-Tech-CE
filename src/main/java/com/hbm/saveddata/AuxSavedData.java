@@ -68,13 +68,13 @@ public List<DataPair> data = new ArrayList<DataPair>();
 		return nbt;
 	}
 	
-	public static AuxSavedData getData(World worldObj) {
+	public static AuxSavedData getData(World world) {
 
-		AuxSavedData data = (AuxSavedData)worldObj.getPerWorldStorage().getOrLoadData(AuxSavedData.class, "hbmauxdata");
+		AuxSavedData data = (AuxSavedData)world.getPerWorldStorage().getOrLoadData(AuxSavedData.class, "hbmauxdata");
 	    if(data == null) {
-	        worldObj.getPerWorldStorage().setData("hbmauxdata", new AuxSavedData());
+	        world.getPerWorldStorage().setData("hbmauxdata", new AuxSavedData());
 	        
-	        data = (AuxSavedData)worldObj.getPerWorldStorage().getOrLoadData(AuxSavedData.class, "hbmauxdata");
+	        data = (AuxSavedData)world.getPerWorldStorage().getOrLoadData(AuxSavedData.class, "hbmauxdata");
 	    }
 	    
 	    return data;

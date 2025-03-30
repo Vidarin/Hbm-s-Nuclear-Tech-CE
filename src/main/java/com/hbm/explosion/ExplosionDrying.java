@@ -14,7 +14,7 @@ public class ExplosionDrying
 	public int lastposZ = 0;
 	public int radius;
 	public int radius2;
-	public World worldObj;
+	public World world;
 	private int n = 1;
 	private int nlimit;
 	private int shell;
@@ -63,7 +63,7 @@ public class ExplosionDrying
 		this.posY = y;
 		this.posZ = z;
 		
-		this.worldObj = world;
+		this.world = world;
 		
 		this.radius = rad;
 		this.radius2 = this.radius * this.radius;
@@ -96,9 +96,9 @@ public class ExplosionDrying
 			for (int y = (int)(dist / this.explosionCoefficient2); y > -dist / this.explosionCoefficient; y--)
 			{
 				pos.setPos(this.posX + x, this.posY + y, this.posZ + z);
-				if(!this.worldObj.isAirBlock(pos)){
-					if(this.worldObj.getBlockState(pos).getMaterial().isLiquid()){
-						this.worldObj.setBlockToAir(pos);
+				if(!this.world.isAirBlock(pos)){
+					if(this.world.getBlockState(pos).getMaterial().isLiquid()){
+						this.world.setBlockToAir(pos);
 					}
 				}
 			}
