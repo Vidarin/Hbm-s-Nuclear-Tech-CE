@@ -18,6 +18,7 @@ import com.hbm.inventory.fluid.trait.FT_Heatable.HeatingType;
 //import com.hbm.inventory.gui.GUIPWR;
 import com.hbm.items.ModItems;
 //import com.hbm.items.machine.ItemPWRFuel.EnumPWRFuel;
+import com.hbm.lib.ForgeDirection;
 import com.hbm.main.MainRegistry;
 import com.hbm.sound.AudioWrapper;
 import com.hbm.tileentity.IGUIProvider;
@@ -37,15 +38,19 @@ import li.cil.oc.api.network.SimpleComponent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 //import net.minecraft.util.MathHelper;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import static com.hbm.tileentity.machine.TileEntityMachineFluidTank.slots;
 //import net.minecraftforge.common.util.ForgeDirection;
 
 //@Optional.InterfaceList({@Optional.Interface(iface = "li.cil.oc.api.network.SimpleComponent", modid = "OpenComputers")})
-public class TileEntityPWRController extends TileEntityMachineBase implements IGUIProvider, IControlReceiver, SimpleComponent, IFluidStandardTransceiver, CompatHandler.OCComponent, IInventory {
+public class TileEntityPWRController extends TileEntityMachineBase implements ITickable, IGUIProvider, IControlReceiver, SimpleComponent, IFluidStandardTransceiver, CompatHandler.OCComponent {
 
     public FluidTankNTM[] tanks;
     public long coreHeat;
@@ -124,7 +129,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
                 boolean controlled = false;
 
                 for(int i = 1; i < 16; i++) {
-                    BlockPos checkPos = fuelPos.offset(dir, i);
+                    BlockPos checkPos = fuelPos.offset(dir.toEnumFacing(), i);
                     Block atPos = partMap.get(checkPos);
                     if(atPos == null || atPos == ModBlocks.pwr_casing) break;
                     if(atPos == ModBlocks.pwr_control) controlled = true;
@@ -162,31 +167,31 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
     }
 
     @Override
-    public void updateEntity() {
+    public void update() {
 
         if(!world.isRemote) {
 
-            this.tanks[0].setType(2, slots);
+            this.tanks[0].setType(2, inventory);
             setupTanks();
 
             if(unloadDelay > 0) unloadDelay--;
 
-            int chunkX = xCoord >> 4;
-            int chunkZ = zCoord >> 4;
+            int chunkX = pos.getX() >> 4;
+            int chunkZ = pos.getZ() >> 4;
 
             //since fluid sources are often not within 1 chunk, we just do 2 chunks distance and call it a day
-            if(!world.getChunkProvider().chunkExists(chunkX, chunkZ) ||
-                    !world.getChunkProvider().chunkExists(chunkX + 2, chunkZ + 2) ||
-                    !world.getChunkProvider().chunkExists(chunkX + 2, chunkZ - 2) ||
-                    !world.getChunkProvider().chunkExists(chunkX - 2, chunkZ + 2) ||
-                    !world.getChunkProvider().chunkExists(chunkX - 2, chunkZ - 2)) {
+            if (world.getChunkProvider().getLoadedChunk(chunkX, chunkZ) == null ||
+                    world.getChunkProvider().getLoadedChunk(chunkX + 2, chunkZ + 2) == null ||
+                    world.getChunkProvider().getLoadedChunk(chunkX + 2, chunkZ - 2) == null ||
+                    world.getChunkProvider().getLoadedChunk(chunkX - 2, chunkZ + 2) == null ||
+                    world.getChunkProvider().getLoadedChunk(chunkX - 2, chunkZ - 2) == null) {
                 this.unloadDelay = 60;
             }
 
             if(this.assembled) {
                 for(BlockPos pos : ports) {
                     for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-                        BlockPos portPos = pos.offset(dir);
+                        BlockPos portPos = pos.offset(dir.toEnumFacing());
 
                         if(tanks[1].getFill() > 0) this.sendFluid(tanks[1], world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
                         if(world.getTotalWorldTime() % 20 == 0) this.trySubscribe(tanks[0].getTankType(), world, portPos.getX(), portPos.getY(), portPos.getZ(), dir);
@@ -196,7 +201,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IG
                 //only perform fission if the area has been loaded for 40 ticks or more
                 if(this.unloadDelay <= 0) {
 
-                    if((typeLoaded == -1 || amountLoaded <= 0) && slots[0] != null && slots[0].getItem() == ModItems.pwr_fuel) {
+                    if((typeLoaded == -1 || amountLoaded <= 0) && slots[0] == ModItems.pwr_fuel) {
                         typeLoaded = slots[0].getItemDamage();
                         amountLoaded++;
                         this.decrStackSize(0, 1);

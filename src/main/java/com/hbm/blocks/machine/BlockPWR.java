@@ -18,6 +18,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -102,7 +103,7 @@ public class BlockPWR extends BlockContainer {
         super.breakBlock(worldIn, pos, state);
     }
 
-    public static class TileEntityBlockPWR extends TileEntity implements IFluidConnector, ISidedInventory, ITickable {
+    public static class TileEntityBlockPWR extends TileEntity implements IFluidConnector, ISidedInventory, ITickable, IInventory {
 
         public IBlockState block;
         public int coreX;
@@ -231,7 +232,7 @@ public class BlockPWR extends BlockContainer {
             if(this.getBlockMetadata() != 1) return 0;
             if(block == null) return 0;
             TileEntityPWRController controller = this.getCore();
-            if(controller != null) return controller.getInventorySize();
+            if(controller != null) return controller.inventory.getSlots();
 
             return 0;
         }
@@ -247,7 +248,7 @@ public class BlockPWR extends BlockContainer {
             if(this.getBlockMetadata() != 1) return null;
             if(block == null) return null;
             TileEntityPWRController controller = this.getCore();
-            if(controller != null) return controller.getStackInSlot(slot);
+            if(controller != null) return controller.inventory.getStackInSlot(slot);
 
             return null;
         }
@@ -258,7 +259,7 @@ public class BlockPWR extends BlockContainer {
             if(this.getBlockMetadata() != 1) return null;
             if(block == null) return null;
             TileEntityPWRController controller = this.getCore();
-            if(controller != null) return controller.decrStackSize(slot, amount);
+            if(controller != null) return controller.inventory.extractItem(slot, amount, true);
 
             return null;
         }
@@ -274,7 +275,7 @@ public class BlockPWR extends BlockContainer {
             if(this.getBlockMetadata() != 1) return null;
             if(block == null) return null;
             TileEntityPWRController controller = this.getCore();
-            if(controller != null) return controller.getStackInSlotOnClosing(slot);
+            if(controller != null) return controller.inventory.getStackInSlot(slot);
 
             return null;
         }
