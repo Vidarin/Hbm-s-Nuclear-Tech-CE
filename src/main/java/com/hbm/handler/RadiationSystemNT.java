@@ -258,8 +258,8 @@ public class RadiationSystemNT {
     private static void updateRadSaveData(World world) {
         RadiationSavedData data = RadiationSavedData.getData(world);
 
-        if (data.worldObj == null) {
-            data.worldObj = world;
+        if (data.world == null) {
+            data.world = world;
         }
 
         if (GeneralConfig.enableDebugMode) {
@@ -289,8 +289,8 @@ public class RadiationSystemNT {
 
                 RadiationSavedData data = RadiationSavedData.getData(world);
 
-                if (data.worldObj == null) {
-                    data.worldObj = world;
+                if (data.world == null) {
+                    data.world = world;
                 }
 
                 if (world.getTotalWorldTime() % 20 == 15 && updateData) { // lets not make a lag spike at tick 0 unless a chunk requires update

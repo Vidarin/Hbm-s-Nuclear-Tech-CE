@@ -1346,6 +1346,12 @@ public class ModItems {
 	public static final Item plate_fuel_ra226be = new ItemPlateFuel(1300000, "plate_fuel_ra226be").setFunction(ItemPlateFuel.FunctionEnum.PASSIVE, 30).setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
 	public static final Item plate_fuel_pu238be = new ItemPlateFuel(1000000, "plate_fuel_pu238be").setFunction(ItemPlateFuel.FunctionEnum.PASSIVE, 50).setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
 
+
+	public static final Item pwr_fuel = new ItemPWRFuel().setCreativeTab(MainRegistry.controlTab);
+	public static final Item pwr_fuel_hot = new ItemEnumMulti("pwr_fuel_hot", ItemPWRFuel.EnumPWRFuel.class, true, false).setCreativeTab(MainRegistry.controlTab);
+	public static final Item pwr_fuel_depleted = new ItemEnumMulti("pwr_fuel_depleted", ItemPWRFuel.EnumPWRFuel.class, true, false).setCreativeTab(MainRegistry.controlTab);
+
+
 	// Th3_Sl1ze: this is the temporary variant, I'm sincerely too tired and unwilling to do anything at 3 am to clean up the old rods
 	// because they all fucking need to be change in all recipes. Without the "_new" the game WILL crash because of the same registry names.
 	// TODO: Norwood, if you're reading this, remind me to clean this shithole below

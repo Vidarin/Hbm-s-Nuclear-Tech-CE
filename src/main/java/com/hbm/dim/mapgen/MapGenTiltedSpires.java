@@ -47,8 +47,8 @@ public class MapGenTiltedSpires extends MapGenBase {
 
 	// Fix falling gravel lag
 	@Override
-	public void generate(World worldObj, int chunkX, int chunkZ, ChunkPrimer primer) {
-		if (world != worldObj) {
+	public void generate(World world, int chunkX, int chunkZ, ChunkPrimer primer) {
+		if (world != world) {
 			this.perlin = DoublePerlinNoiseSampler.create(new Random(rand.nextLong()), -8, 1.0D, 2.0D);
 		}
 

@@ -18,6 +18,7 @@ import com.hbm.blocks.test.TestRender;
 import com.hbm.blocks.turret.*;
 import com.hbm.items.special.ItemHazard;
 import com.hbm.lib.HBMSoundHandler;
+import com.hbm.lib.RefStrings;
 import com.hbm.main.MainRegistry;
 import com.hbm.tileentity.DoorDecl;
 import com.hbm.tileentity.machine.*;
@@ -881,6 +882,20 @@ public class ModBlocks {
 	public static final int guiID_machine_boiler = 72;
 	public static final int guiID_machine_boiler_electric = 73;
 	public static final int guiID_machine_boiler_rtg = 127;
+
+	//PWR's
+	public static Block pwr_fuel = new BlockPillarPWR(Material.IRON, "pwr_fuel", "pwr_fuel_top", "pwr_fuel_side").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_control = new BlockPillarPWR(Material.IRON, "pwr_control", "pwr_control_top", "pwr_control_side").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_channel = new BlockPillarPWR(Material.IRON, "pwr_channel", "pwr_channel_top", "pwr_channel_side").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_heatex = new BlockGenericPWR(Material.IRON, "pwr_heatex", "pwr_heatex").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_heatsink = new BlockGenericPWR(Material.IRON, "pwr_heatsink", "pwr_heatsink").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_neutron_source = new BlockGenericPWR(Material.IRON, "pwr_neutron_source", "pwr_neutron_source").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_reflector = new BlockGenericPWR(Material.IRON, "pwr_reflector", "pwr_reflector").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_casing = new BlockGenericPWR(Material.IRON "pwr_casing", "pwr_casing").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_port = new BlockGenericPWR(Material.IRON "pwr_port", "pwr_port").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab);
+	public static Block pwr_controller = new MachinePWRController(Material.IRON).setBlockName("pwr_controller").setHardness(5.0F).setResistance(10.0F).setCreativeTab(MainRegistry.machineTab).setBlockTextureName(RefStrings.MODID + ":pwr_casing_blank");
+	public static Block pwr_block = new BlockPWR(Material.IRON, "pwr_block", "pwr_block").setHardness(5.0F).setResistance(10.0F).setCreativeTab(null);
+
 
 	public static final Block machine_battery_potato = new MachineBattery(Material.IRON, 100000L, "machine_battery_potato").setHardness(1.0F).setResistance(1.0F).setCreativeTab(MainRegistry.machineTab);
 	public static final Block machine_battery = new MachineBattery(Material.IRON, 10000000L, "machine_battery").setHardness(2.0F).setResistance(4.0F).setCreativeTab(MainRegistry.machineTab);

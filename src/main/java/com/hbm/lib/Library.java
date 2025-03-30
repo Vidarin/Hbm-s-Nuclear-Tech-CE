@@ -803,7 +803,7 @@ public static boolean canConnect(IBlockAccess world, BlockPos pos, ForgeDirectio
 	//TODO: jesus christ
 	// Flut-Füll gesteuerter Energieübertragungsalgorithmus
 	// Flood fill controlled energy transmission algorithm
-	// public static void ffgeua(MutableBlockPos pos, boolean newTact, ISource that, World worldObj) {
+	// public static void ffgeua(MutableBlockPos pos, boolean newTact, ISource that, World world) {
 		
 	// 	/*
 	// 	 * This here smoldering crater is all that remains from the old energy system.
@@ -812,7 +812,7 @@ public static boolean canConnect(IBlockAccess world, BlockPos pos, ForgeDirectio
 	// 	 */
 	// }
 
-	public static void transmitFluid(int x, int y, int z, boolean newTact, IFluidSource that, World worldObj, FluidType type) { }
+	public static void transmitFluid(int x, int y, int z, boolean newTact, IFluidSource that, World world, FluidType type) { }
 
 	//Th3_Sl1ze: Sincerely I hate deprecated interfaces but couldn't figure out how to make mechs work without them. Will let them live for now
 

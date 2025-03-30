@@ -47,7 +47,7 @@ public class BlockHazardFalling extends BlockFalling implements IItemHazard {
 	}
 
 	@Override
-	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon){
+	public boolean isBeaconBase(IBlockAccess world, BlockPos pos, BlockPos beacon){
 		return beaconable;
 	}
 

@@ -21,7 +21,7 @@ public class ModelMaskMan extends ModelBase {
 		GL11.glRotatef(-90, 0, 1, 0);
 		EntityMaskMan man = (EntityMaskMan)entity;
 		
-		//boolean target = entity.worldObj.getEntityByID(man.getDataWatcher().getWatchableObjectInt(man.dwTargetPlayer)) != null;
+		//boolean target = entity.world.getEntityByID(man.getDataWatcher().getWatchableObjectInt(man.dwTargetPlayer)) != null;
 
 		//if(target)
 		//	GL11.glRotated(-f3, 0, 1, 0);

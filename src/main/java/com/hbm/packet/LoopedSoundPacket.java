@@ -145,7 +145,7 @@ public class LoopedSoundPacket implements IMessage {
 							flag = false;
 					}
 					
-					if(flag && te.getWorldObj().isRemote && ((TileEntityMachineIGenerator)te).torque > 0)
+					if(flag && te.getworld().isRemote && ((TileEntityMachineIGenerator)te).torque > 0)
 						Minecraft.getMinecraft().getSoundHandler().playSound(new SoundLoopIGen(new ResourceLocation("hbm:block.igeneratorOperate"), te));
 				}
 				*/

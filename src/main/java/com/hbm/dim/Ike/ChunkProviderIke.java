@@ -36,8 +36,8 @@ public class ChunkProviderIke extends ChunkProviderCelestial {
 	public ChunkPrimer getChunkPrimer(int x, int z) {
 		ChunkPrimer buffer = super.getChunkPrimer(x, z);
 
-		spires.generate(worldObj, x, z, buffer);
-		caveGenerator.generate(worldObj, x, z, buffer);
+		spires.generate(world, x, z, buffer);
+		caveGenerator.generate(world, x, z, buffer);
 		
 		return buffer;
 	}

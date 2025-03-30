@@ -16,6 +16,11 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class GeneralConfig {
 
+	public static boolean enablePacketThreading = true;
+	public static int packetThreadingCoreCount = 1;
+	public static int packetThreadingMaxCount = 1;
+	public static boolean packetThreadingErrorBypass = false;
+
 	public static double conversionRateHeToRF = 1.0F;
 	public static boolean enableDebugMode = false;
 	public static boolean enableSkybox = true;

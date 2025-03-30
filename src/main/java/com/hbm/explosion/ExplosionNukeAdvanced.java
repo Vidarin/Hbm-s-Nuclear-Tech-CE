@@ -16,7 +16,7 @@ public class ExplosionNukeAdvanced
 	public int lastposZ = 0;
 	public int radius;
 	public int radius2;
-	public World worldObj;
+	public World world;
 	private int n = 1;
 	private int nlimit;
 	private int shell;
@@ -65,7 +65,7 @@ public class ExplosionNukeAdvanced
 		this.posY = y;
 		this.posZ = z;
 		
-		this.worldObj = world;
+		this.world = world;
 		
 		this.radius = rad;
 		this.radius2 = this.radius * this.radius;
@@ -77,7 +77,7 @@ public class ExplosionNukeAdvanced
 	}
 	
 	public boolean update() {
-		if(!CompatibilityConfig.isWarDim(worldObj)){
+		if(!CompatibilityConfig.isWarDim(world)){
 			return true;
 		}
 		switch(this.type)
@@ -111,9 +111,9 @@ public class ExplosionNukeAdvanced
 			{
 				pos.setPos(this.posX + x, this.posY + y, this.posZ + z);
 				if(y<8){//only spare blocks that are mostly below epicenter
-					y -= ExplosionNukeGeneric.destruction(this.worldObj, pos);//spare blocks below
+					y -= ExplosionNukeGeneric.destruction(this.world, pos);//spare blocks below
 				}else{//don't spare blocks above epicenter
-					ExplosionNukeGeneric.destruction(this.worldObj, pos);
+					ExplosionNukeGeneric.destruction(this.world, pos);
 				}
 			}
 		}
@@ -129,7 +129,7 @@ public class ExplosionNukeAdvanced
 			for (int y = dist; y > -dist * this.explosionCoefficient; y--)
 			{
 				pos.setPos(this.posX + x, this.posY + y, this.posZ + z);
-				y -= ExplosionNukeGeneric.vaporDest(this.worldObj, pos);
+				y -= ExplosionNukeGeneric.vaporDest(this.world, pos);
 			}
 		}
 	}
@@ -145,9 +145,9 @@ public class ExplosionNukeAdvanced
 			{
 				pos.setPos(this.posX + x, this.posY + y, this.posZ + z);
 				if(radius >= 95)
-					ExplosionNukeGeneric.wasteDest(this.worldObj, pos);
+					ExplosionNukeGeneric.wasteDest(this.world, pos);
 				else
-					ExplosionNukeGeneric.wasteDestNoSchrab(this.worldObj, pos);
+					ExplosionNukeGeneric.wasteDestNoSchrab(this.world, pos);
 			}
 		}
 	}

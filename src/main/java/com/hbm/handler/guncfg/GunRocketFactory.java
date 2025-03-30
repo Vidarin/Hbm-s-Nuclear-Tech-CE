@@ -323,13 +323,13 @@ public class GunRocketFactory {
 			
 			public void behaveBlockRicochet(EntityBulletBase bullet, int bX, int bY, int bZ) {
 				BlockPos pos = new BlockPos(bX, bY, bZ);
-				World worldObj = bullet.world;
-				if(!worldObj.isRemote && 
-						(worldObj.getBlockState(pos).getMaterial() == Material.WOOD ||
-						worldObj.getBlockState(pos).getMaterial() == Material.PLANTS ||
-						worldObj.getBlockState(pos).getMaterial() == Material.GLASS ||
-						worldObj.getBlockState(pos).getMaterial() == Material.LEAVES))
-					worldObj.destroyBlock(pos, false);}
+				World world = bullet.world;
+				if(!world.isRemote && 
+						(world.getBlockState(pos).getMaterial() == Material.WOOD ||
+						world.getBlockState(pos).getMaterial() == Material.PLANTS ||
+						world.getBlockState(pos).getMaterial() == Material.GLASS ||
+						world.getBlockState(pos).getMaterial() == Material.LEAVES))
+					world.destroyBlock(pos, false);}
 			
 		};
 		
