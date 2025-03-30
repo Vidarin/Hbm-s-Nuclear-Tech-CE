@@ -16,7 +16,7 @@ import static com.hbm.render.block.BlockBakeFrame.BlockForm.*;
  * All you need to do is provide its form (consult the enum on the bottom of the class), and string names of textures
  * from there it will be handled for you.
  *
- * @author MrNorwood
+ * @author MrNorwood(mister shelby, sigma)
  */
 public class BlockBakeFrame {
 
