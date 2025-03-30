@@ -27,6 +27,7 @@ public final class HBMSoundHandler {
 	public static SoundEvent techBleep;
 	public static SoundEvent techBoop;
 	public static SoundEvent reactorStart;
+	public static SoundEvent reactorLoop;
 	public static SoundEvent reactorStop;
 	public static SoundEvent chemplantOperate;
 	public static SoundEvent potatOSRandom;
@@ -313,6 +314,7 @@ public final class HBMSoundHandler {
 		techBleep = register("item.techBleep");
 		techBoop = register("item.techBoop");
 		reactorStart = register("block.reactorStart");
+		reactorLoop = register("block.reactorLoop");
 		reactorStop = register("block.reactorStop");
 		chemplantOperate = register("block.chemplantOperate");
 		potatOSRandom = register("potatos.random");

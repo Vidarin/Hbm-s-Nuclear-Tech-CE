@@ -2014,7 +2014,11 @@ public class ClientProxy extends ServerProxy {
 		audio.updatePosition(x, y, z);
 		return audio;
 	}
-	
+
+	public AudioWrapper getLoopedSound(SoundEvent sound, SoundCategory cat, BlockPos pos, float volume, float pitch) {
+		return getLoopedSound(sound, cat, pos.getX(), pos.getY(), pos.getZ(), volume, pitch );
+	}
+
 	@Override
 	public AudioWrapper getLoopedSoundStartStop(World world, SoundEvent sound, SoundEvent start, SoundEvent stop, SoundCategory cat, float x, float y, float z, float volume, float pitch) {
 		AudioWrapperClientStartStop audio = new AudioWrapperClientStartStop(world, sound, start, stop, volume, cat);

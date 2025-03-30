@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -42,7 +43,8 @@ public class ServerProxy
 	public void registerMissileItems(IRegistry<ModelResourceLocation, IBakedModel> reg) { }
 
 	public AudioWrapper getLoopedSound(SoundEvent sound, SoundCategory cat, float x, float y, float z, float volume, float pitch) { return null; }
-	
+	public AudioWrapper getLoopedSound(SoundEvent sound, SoundCategory cat, BlockPos pos, float volume, float pitch) { return null; }
+
 	public AudioWrapper getLoopedSoundStartStop(World world, SoundEvent sound, SoundEvent start, SoundEvent stop, SoundCategory cat, float x, float y, float z, float volume, float pitch){return null;}
 	
 	public void preInit(FMLPreInitializationEvent evt) {}
