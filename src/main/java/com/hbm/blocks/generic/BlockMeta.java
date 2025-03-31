@@ -36,7 +36,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -95,24 +94,18 @@ public class BlockMeta extends BlockBase implements ICustomBlockItem, IDynamicMo
         INSTANCES.add(this);
     }
 
-    public static void registerSprites(TextureMap map) {
-        INSTANCES.forEach(item -> item.registerSprite(map));
-    }
 
     @SideOnly(Side.CLIENT)
     public void registerModel() {
-            for (int meta = 0; meta <= this.META_COUNT; meta++) {
-                ModelLoader.setCustomModelResourceLocation(
-                        Item.getItemFromBlock(this),
-                        meta,
-                        new ModelResourceLocation(this.getRegistryName(), "meta=" + meta)
-                );
-            }
+        for (int meta = 0; meta <= this.META_COUNT; meta++) {
+            ModelLoader.setCustomModelResourceLocation(
+                    Item.getItemFromBlock(this),
+                    meta,
+                    new ModelResourceLocation(this.getRegistryName(), "meta=" + meta)
+            );
+        }
     }
 
-    public static void bakeModels(ModelBakeEvent event) {
-        INSTANCES.forEach(blockMeta -> blockMeta.bakeModel(event));
-    }
 
     @SideOnly(Side.CLIENT)
     public void registerSprite(TextureMap map) {

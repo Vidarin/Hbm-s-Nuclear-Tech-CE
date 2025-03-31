@@ -61,17 +61,6 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
         };
     }
 
-    @Override
-    public ItemStack getStackInSlotOnClosing(int i) {
-        if(inventory != null)
-        {
-            ItemStack itemStack = inventory.getStackInSlot(i);
-            inventory.setStackInSlot(i, ItemStack.EMPTY);
-            return itemStack;
-        } else {
-            return null;
-        }
-    }
 
     // This is for cases like barrels - in 2.0.3 there are 6 slots instead of 4
     public void resizeInventory(int newSlotCount) {
@@ -81,6 +70,19 @@ public abstract class TileEntityMachineBase extends TileEntityLoadedBase impleme
         }
         this.inventory = newInventory;
         markDirty();
+    }
+    public ItemStack takeStackOnClosing(int index) {
+        if (index >= 0 && index < inventory.getSlots()) {
+            ItemStack stack = inventory.getStackInSlot(index);
+            if (!stack.isEmpty()) {
+                inventory.setStackInSlot(index, ItemStack.EMPTY);
+                return stack;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+    public ItemStack getStackInSlotOnClosing(int i){
+        return takeStackOnClosing(i);
     }
 
     public String getInventoryName() {

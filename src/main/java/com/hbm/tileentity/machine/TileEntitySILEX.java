@@ -27,7 +27,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.WeightedRandom;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -39,6 +38,7 @@ public class TileEntitySILEX extends TileEntityMachineBase implements ITickable,
 
     public static final int maxFill = 16000;
     public static final HashMap<FluidType, ComparableStack> fluidConversion = new HashMap<>();
+    public static final int PRIME = 137;
 
     static {
         putFluid(Fluids.UF6);
@@ -53,7 +53,6 @@ public class TileEntitySILEX extends TileEntityMachineBase implements ITickable,
     public ComparableStack current;
     public int currentFill;
     public int progress;
-    public static final int PRIME = 137;
     public int recipeIndex = 0;
 
     //0: Input
@@ -210,41 +209,41 @@ public class TileEntitySILEX extends TileEntityMachineBase implements ITickable,
     }
 
     private boolean process() {
-        if(current == null || currentFill <= 0)
+        if (current == null || currentFill <= 0)
             return false;
 
         SILEXRecipe recipe = SILEXRecipes.getOutput(current.toStack());
 
-        if(recipe == null)
+        if (recipe == null)
             return false;
 
-        if(recipe.laserStrength.ordinal() > this.mode.ordinal())
+        if (recipe.laserStrength.ordinal() > this.mode.ordinal())
             return false;
 
-        if(currentFill < recipe.fluidConsumed)
+        if (currentFill < recipe.fluidConsumed)
             return false;
 
-        if(!inventory.getStackInSlot(4).isEmpty())
+        if (!inventory.getStackInSlot(4).isEmpty())
             return false;
 
         int progressSpeed = (int) Math.pow(2, this.mode.ordinal() - recipe.laserStrength.ordinal() + 1) / 2;
 
         progress += progressSpeed;
 
-        if(progress >= processTime) {
+        if (progress >= processTime) {
 
             currentFill -= recipe.fluidConsumed;
 
             int totalWeight = 0;
-            for(WeightedRandomObject weighted : recipe.outputs) totalWeight += weighted.itemWeight;
+            for (WeightedRandomObject weighted : recipe.outputs) totalWeight += weighted.itemWeight;
             this.recipeIndex %= Math.max(totalWeight, 1);
 
             int weight = 0;
 
-            for(WeightedRandomObject weighted : recipe.outputs) {
+            for (WeightedRandomObject weighted : recipe.outputs) {
                 weight += weighted.itemWeight;
 
-                if(this.recipeIndex < weight) {
+                if (this.recipeIndex < weight) {
                     inventory.setStackInSlot(4, weighted.asStack().copy());
                     break;
                 }
@@ -257,8 +256,6 @@ public class TileEntitySILEX extends TileEntityMachineBase implements ITickable,
         }
 
         return true;
-
-
 
 
     }
