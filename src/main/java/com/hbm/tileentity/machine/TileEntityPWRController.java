@@ -26,6 +26,7 @@ import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.SimpleComponent;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
@@ -455,11 +456,6 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IT
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int side) {
-        return new int[]{0, 1};
-    }
-
-    @Override
     public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
         return slot == 1;
     }
@@ -623,7 +619,7 @@ public class TileEntityPWRController extends TileEntityMachineBase implements IT
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Object provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
+    public GuiScreen provideGUI(int ID, EntityPlayer player, World world, int x, int y, int z) {
         return new GUIPWR(player.inventory, this);
     }
 

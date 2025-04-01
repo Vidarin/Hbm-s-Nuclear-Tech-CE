@@ -1,21 +1,11 @@
 package com.hbm.blocks.machine;
 
-import java.util.Random;
-
-import com.hbm.inventory.fluid.FluidType;
-//import com.hbm.render.block.ct.CT;
-//import com.hbm.render.block.ct.CTStitchReceiver;
-//import com.hbm.render.block.ct.IBlockCT;
-import com.hbm.tileentity.machine.TileEntityPWRController;
-
 import api.hbm.fluid.IFluidConnector;
-//import cpw.mods.fml.relauncher.Side;
-//import cpw.mods.fml.relauncher.SideOnly;
-import com.typesafe.config.ConfigException;
+import com.hbm.inventory.fluid.FluidType;
+import com.hbm.lib.ForgeDirection;
+import com.hbm.tileentity.machine.TileEntityPWRController;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-//import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -28,13 +18,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-//import net.minecraft.util.IIcon;
 import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.util.EnumFacing;
+
+import java.util.Random;
 
 //MrNorwood: Oh my fucking god fristie,this dogshit should be thrown the fuck out
 public class BlockPWR extends BlockContainerBakeable {
@@ -104,30 +94,24 @@ public class BlockPWR extends BlockContainerBakeable {
         super.breakBlock(worldIn, pos, state);
     }
 
-    //MrNorwood: tbh we can get rid of ISidedInventory and IInventory, that shit is slow as fuck compared to capabilities
-    public static class TileEntityBlockPWR extends TileEntity implements IFluidConnector, ISidedInventory, ITickable, IInventory {
+    //MrNorwood: tbh we can get rid of ISidedInventory and IInventory, that shit is slow as fuck compared to capabilites
+    public static class TileEntityBlockPWR extends TileEntity implements IFluidConnector,  ITickable {
 
         public IBlockState block;
         public int coreX;
         public int coreY;
         public int coreZ;
+        public TileEntityPWRController cachedCore;
+        public boolean isLoaded = true;
 
         @Override
         public void update() {
-
-            if (!world.isRemote) {
-
-                if (world.getTotalWorldTime() % 20 == 0 && block != null) {
-
-                    TileEntityPWRController controller = getCore();
-
-                    if (controller != null) {
-                        if (!controller.assembled) {
-                            this.getBlockType().breakBlock(world, pos, block);
-                        }
-                    } else if (world.isChunkGeneratedAt(coreX >> 4, coreZ >> 4)) {
-                        this.getBlockType().breakBlock(world, pos, block);
-                    }
+            if (!world.isRemote && world.getTotalWorldTime() % 20 == 0) {
+                TileEntityPWRController controller = getCore();
+                if (controller != null && !controller.assembled) {
+                    world.destroyBlock(pos, true);
+                } else if (controller == null && world.isChunkGeneratedAt(coreX >> 4, coreZ >> 4)) {
+                    world.destroyBlock(pos, true);
                 }
             }
         }
@@ -146,7 +130,6 @@ public class BlockPWR extends BlockContainerBakeable {
             }
         }
 
-        //negroid tech
         @Override
         public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
             super.writeToNBT(nbt);
@@ -167,23 +150,6 @@ public class BlockPWR extends BlockContainerBakeable {
                 this.world.notifyBlockUpdate(pos, this.world.getBlockState(pos), this.world.getBlockState(pos), 3);
             }
         }
-
-        @Override
-        public boolean isUsableByPlayer(EntityPlayer player) {
-            return false;
-        }
-
-        @Override
-        public void openInventory(EntityPlayer player) {
-
-        }
-
-        @Override
-        public void closeInventory(EntityPlayer player) {
-
-        }
-
-        public TileEntityPWRController cachedCore;
 
         protected TileEntityPWRController getCore() {
 
@@ -223,8 +189,8 @@ public class BlockPWR extends BlockContainerBakeable {
         }
 
         @Override
-        public boolean canConnect(FluidType type) {
-
+        public boolean canConnect(FluidType type, ForgeDirection dir) {
+            return this.getBlockMetadata() == 1;
         }
 
         @Override
@@ -387,8 +353,6 @@ public class BlockPWR extends BlockContainerBakeable {
 
             return false;
         }
-
-        public boolean isLoaded = true;
 
         @Override
         public boolean isLoaded() {
