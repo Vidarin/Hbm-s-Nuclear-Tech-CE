@@ -39,8 +39,8 @@
  */
 dependencies {
 
-    api("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.700")
 
+    annotationProcessor sourceSets.main.output
     compileOnly rfg.deobf("curse.maven:opencomputers-223008:5274236")
 
     //compileOnly rfg.deobf("dev.galacticraft:galacticraft-legacy:${version_gc}")
