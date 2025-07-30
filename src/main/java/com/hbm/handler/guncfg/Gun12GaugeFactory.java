@@ -157,7 +157,7 @@ public class Gun12GaugeFactory {
 		config.config.add(BulletConfigSyncingUtil.G12_DU);
 		return config;
 	}
-	
+	/*
 	public static BulletConfiguration get12GaugeConfig() {
 		
 		BulletConfiguration bullet = BulletConfigFactory.standardBuckshotConfig();
@@ -242,4 +242,5 @@ public class Gun12GaugeFactory {
 
 		return bullet;
 	}
+	 */
 }
