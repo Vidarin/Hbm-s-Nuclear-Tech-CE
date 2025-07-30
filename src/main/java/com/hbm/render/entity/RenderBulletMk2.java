@@ -32,8 +32,6 @@ public class RenderBulletMk2 extends Render<EntityBulletBase> {
 	private ModelRocket rocket;
 	private ModelGrenade grenade;
 	private ModelMiniNuke nuke;
-	private ModelMIRV mirv;
-	private ModelBaleflare bf;
 
 	private ResourceLocation bullet_rl = new ResourceLocation(RefStrings.MODID + ":textures/models/projectiles/bullet.png");
 	private ResourceLocation emplacer = new ResourceLocation(RefStrings.MODID + ":textures/models/projectiles/emplacer.png");
@@ -64,8 +62,6 @@ public class RenderBulletMk2 extends Render<EntityBulletBase> {
 		rocket = new ModelRocket();
 		grenade = new ModelGrenade();
 		nuke = new ModelMiniNuke();
-		mirv = new ModelMIRV();
-		bf = new ModelBaleflare();
 	}
 
 	@Override
@@ -239,12 +235,6 @@ public class RenderBulletMk2 extends Render<EntityBulletBase> {
 		case 0:
 			bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/models/projectiles/MiniNuke.png"));
 			nuke.renderAll(0.0625F); break;
-		case 1:
-			bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/models/projectiles/Mirv.png"));
-			mirv.renderAll(0.0625F); break;
-		case 2:
-			bindTexture(new ResourceLocation(RefStrings.MODID + ":textures/models/projectiles/BaleFlare.png"));
-			bf.renderAll(0.0625F); break;
 		}
 
 	}

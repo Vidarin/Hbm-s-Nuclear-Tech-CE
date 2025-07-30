@@ -461,7 +461,9 @@ public class ItemGunBase extends Item implements IHoldableWeapon, IItemHUD {
 	// item mouseover text
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> list, ITooltipFlag flagIn) {
-		Item ammo = BulletConfigSyncingUtil.pullConfig(mainConfig.config.get(getMagType(stack))).ammo;
+		BulletConfiguration config = BulletConfigSyncingUtil.pullConfig(mainConfig.config.get(getMagType(stack)));
+		if (config == null) return;
+		Item ammo = config.ammo;
 
 		if(mainConfig.ammoCap > 0){
 			int mag = getMag(stack);

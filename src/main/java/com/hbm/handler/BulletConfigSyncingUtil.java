@@ -2,6 +2,7 @@ package com.hbm.handler;
 
 import com.hbm.handler.guncfg.*;
 import com.hbm.items.ModItems;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -263,7 +264,8 @@ private static HashMap<Integer, BulletConfiguration> configSet = new HashMap<Int
 		
 		configSet.put(UFO_ROCKET, GunNPCFactory.getRocketUFOConfig());
 	}
-	
+
+	@Nullable
 	public static BulletConfiguration pullConfig(int key) {
 		
 		return configSet.get(key);
