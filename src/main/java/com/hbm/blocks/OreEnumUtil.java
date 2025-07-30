@@ -49,12 +49,7 @@ public class OreEnumUtil {
             Item.getItemFromBlock(ModBlocks.machine_rtg_grey),
             pellet_rtg,
             pellet_rtg_weak,
-            rtg_unit,
-            gun_spark_ammo,
-            ammo_nuke,
-            ammo_mirv,
-            gun_defabricator_ammo,
-            gun_osipr_ammo2
+            rtg_unit
     );
 
     public static int base2Rand3Fortune(IBlockState state, int fortune, Random rand) { return 2 + rand.nextInt(3) + fortune; }

@@ -130,7 +130,7 @@ public class TileEntityTurretRichard extends TileEntityTurretBaseNT implements I
 				this.world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), HBMSoundHandler.richard_fire, SoundCategory.BLOCKS, 2.0F, 1.0F);
 				this.loaded--;
 				
-				if(conf.ammo == ModItems.ammo_rocket_nuclear)
+				if(conf.ammo == ModItems.nothing) //ammo_rocket_nuclear
 					timer = -50;
 				
 			} else {

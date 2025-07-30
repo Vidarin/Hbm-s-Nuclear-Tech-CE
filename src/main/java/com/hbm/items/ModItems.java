@@ -2060,105 +2060,16 @@ public class ModItems {
 	public static final Item coil_magnetized_tungsten = new ItemCustomLore("coil_magnetized_tungsten").setCreativeTab(MainRegistry.partsTab);
 
 	//Gun ammo assemblies and ammo
-	public static final Item assembly_iron = new ItemBase("assembly_iron").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_steel = new ItemBase("assembly_steel").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_lead = new ItemCustomLore("assembly_lead").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_gold = new ItemBase("assembly_gold").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_schrabidium = new ItemBase("assembly_schrabidium").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_nightmare = new ItemBase("assembly_nightmare").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_desh = new ItemBase("assembly_desh").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_nopip = new ItemBase("assembly_nopip").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_smg = new ItemBase("assembly_smg").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_556 = new ItemBase("assembly_556").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_uzi = new ItemBase("assembly_uzi").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_actionexpress = new ItemBase("assembly_actionexpress").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_calamity = new ItemBase("assembly_calamity").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_lacunae = new ItemBase("assembly_lacunae").setCreativeTab(MainRegistry.partsTab);
-	public static final Item assembly_nuke = new ItemBase("assembly_nuke").setCreativeTab(MainRegistry.partsTab);
-	public static final Item gun_revolver_iron_ammo = new ItemBase("gun_revolver_iron_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_ammo = new ItemBase("gun_revolver_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_lead_ammo = new ItemCustomLore("gun_revolver_lead_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_gold_ammo = new ItemBase("gun_revolver_gold_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_schrabidium_ammo = new ItemCustomLore("gun_revolver_schrabidium_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_nightmare_ammo = new ItemCustomLore("gun_revolver_nightmare_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_nightmare2_ammo = new ItemCustomLore("gun_revolver_nightmare2_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_357_desh = new ItemAmmo("ammo_357_desh").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_cursed_ammo = new ItemCustomLore("gun_revolver_cursed_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_revolver_pip_ammo = new ItemCustomLore("gun_revolver_pip_ammo").setCreativeTab(null);
-	public static final Item gun_revolver_nopip_ammo = new ItemBase("gun_revolver_nopip_ammo").setCreativeTab(null);
-	public static final Item ammo_566_gold = new ItemCustomLore("gun_mp_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_rpg_ammo = new ItemBase("gun_rpg_ammo").setCreativeTab(null);
-	public static final Item gun_spark_ammo = new ItemBase("gun_spark_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_euthanasia_ammo = new ItemBase("gun_euthanasia_ammo").setCreativeTab(MainRegistry.weaponTab);
 
-	//public static final Item ammo_debug = new ItemBase("ammo_debug");
+	public static final Item assembly_nuke = new ItemBase("assembly_nuke").setCreativeTab(MainRegistry.partsTab);
+
+	public static final Item ammo_debug = new ItemBase("ammo_debug");
 	public static final Item ammo_standard = new ItemEnumMulti("ammo_standard", EnumAmmo.class, true, true).setCreativeTab(MainRegistry.weaponTab);
 	//public static final Item ammo_secret = new ItemEnumMulti("ammo_secret", EnumAmmoSecret.class, true, true);
 
 	//Drillgon200: screw organization, porting takes less time if I don't have to search for each individual spot.
 	// TODO: Remove the old ammo below
-	public static final Item ammo_4gauge_canister = new ItemAmmo("ammo_4gauge_canister").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_claw = new ItemAmmo("ammo_4gauge_claw").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_vampire = new ItemAmmo("ammo_4gauge_vampire").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_void = new ItemAmmo("ammo_4gauge_void").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_5mm_chlorophyte = new ItemAmmo("ammo_5mm_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_9mm_chlorophyte = new ItemAmmo("ammo_9mm_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_chlorophyte = new ItemAmmo("ammo_556_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_flechette_chlorophyte = new ItemAmmo("ammo_556_flechette_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50ae_chlorophyte = new ItemAmmo("ammo_50ae_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_chlorophyte = new ItemAmmo("ammo_50bmg_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_flechette = new ItemAmmo("ammo_50bmg_flechette").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_flechette_am = new ItemAmmo("ammo_50bmg_flechette_am").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_flechette_po = new ItemAmmo("ammo_50bmg_flechette_po").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_chlorophyte = new ItemAmmo("ammo_44_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_22lr_chlorophyte = new ItemAmmo("ammo_22lr_chlorophyte").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_canister = new ItemAmmo("ammo_rocket_canister").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_20gauge = new ItemAmmo("ammo_20gauge").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_slug = new ItemAmmo("ammo_20gauge_slug").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_flechette = new ItemAmmo("ammo_20gauge_flechette").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_incendiary = new ItemAmmo("ammo_20gauge_incendiary").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_explosive = new ItemAmmo("ammo_20gauge_explosive").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_caustic = new ItemAmmo("ammo_20gauge_caustic").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_shock = new ItemAmmo("ammo_20gauge_shock").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_wither = new ItemAmmo("ammo_20gauge_wither").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_sleek = new ItemAmmo("ammo_20gauge_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_20gauge_shrapnel = new ItemAmmo("ammo_20gauge_shrapnel").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_4gauge = new ItemAmmo("ammo_4gauge").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_slug = new ItemAmmo("ammo_4gauge_slug").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_flechette = new ItemAmmo("ammo_4gauge_flechette").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_flechette_phosphorus = new ItemAmmo("ammo_4gauge_flechette_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_explosive = new ItemAmmo("ammo_4gauge_explosive").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_semtex = new ItemAmmo("ammo_4gauge_semtex").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_balefire = new ItemAmmo("ammo_4gauge_balefire").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_kampf = new ItemAmmo("ammo_4gauge_kampf").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_4gauge_sleek = new ItemAmmo("ammo_4gauge_sleek").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_rocket = new ItemAmmo("ammo_rocket").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_he = new ItemAmmo("ammo_rocket_he").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_incendiary = new ItemAmmo("ammo_rocket_incendiary").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_phosphorus = new ItemAmmo("ammo_rocket_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_shrapnel = new ItemAmmo("ammo_rocket_shrapnel").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_emp = new ItemAmmo("ammo_rocket_emp").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_glare = new ItemAmmo("ammo_rocket_glare").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_toxic = new ItemAmmo("ammo_rocket_toxic").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_sleek = new ItemAmmo("ammo_rocket_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_nuclear = new ItemAmmo("ammo_rocket_nuclear").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_rocket_rpc = new ItemAmmo("ammo_rocket_rpc").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_grenade = new ItemAmmo("ammo_grenade").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_he = new ItemAmmo("ammo_grenade_he").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_incendiary = new ItemAmmo("ammo_grenade_incendiary").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_phosphorus = new ItemAmmo("ammo_grenade_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_toxic = new ItemAmmo("ammo_grenade_toxic").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_concussion = new ItemAmmo("ammo_grenade_concussion").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_finned = new ItemAmmo("ammo_grenade_finned").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_sleek = new ItemAmmo("ammo_grenade_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_nuclear = new ItemAmmo("ammo_grenade_nuclear").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_tracer = new ItemAmmo("ammo_grenade_tracer").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_grenade_kampf = new ItemAmmo("ammo_grenade_kampf").setCreativeTab(MainRegistry.weaponTab);
-	
+
 	public static final Item ammo_shell = new ItemAmmo("ammo_shell").setCreativeTab(MainRegistry.weaponTab);
 	public static final Item ammo_shell_explosive = new ItemAmmo("ammo_shell_explosive").setCreativeTab(MainRegistry.weaponTab);
 	public static final Item ammo_shell_apfsds_t = new ItemAmmo("ammo_shell_apfsds_t").setCreativeTab(MainRegistry.weaponTab);
@@ -2166,152 +2077,17 @@ public class ModItems {
 	public static final Item ammo_shell_w9 = new ItemAmmo("ammo_shell_w9").setCreativeTab(MainRegistry.weaponTab);
 	public static final Item ammo_dgk = new ItemAmmo("ammo_dgk").setCreativeTab(MainRegistry.weaponTab);
 	
-	public static final Item ammo_nuke = new ItemAmmo("ammo_nuke").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_nuke_low = new ItemAmmo("ammo_nuke_low").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_nuke_high = new ItemAmmo("ammo_nuke_high").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_nuke_tots = new ItemAmmo("ammo_nuke_tots").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_nuke_safe = new ItemAmmo("ammo_nuke_safe").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_nuke_pumpkin = new ItemAmmo("ammo_nuke_pumpkin").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_mirv = new ItemAmmo("ammo_mirv").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_mirv_low = new ItemAmmo("ammo_mirv_low").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_mirv_high = new ItemAmmo("ammo_mirv_high").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_mirv_safe = new ItemAmmo("ammo_mirv_safe").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_mirv_special = new ItemAmmo("ammo_mirv_special").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_fuel = new ItemAmmo("ammo_fuel").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(1);
-	public static final Item ammo_fuel_napalm = new ItemAmmo("ammo_fuel_napalm").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(1);
-	public static final Item ammo_fuel_phosphorus = new ItemAmmo("ammo_fuel_phosphorus").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(1);
-	public static final Item ammo_fuel_vaporizer = new ItemAmmo("ammo_fuel_vaporizer").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(1);
-	public static final Item ammo_fuel_gas = new ItemAmmo("ammo_fuel_gas").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(1);
 	public static final Item ammo_cell = new ItemAmmo("ammo_cell").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(16);
 	public static final Item ammo_dart = new ItemAmmo("ammo_dart").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(16);
 	
-	public static final Item ammo_12gauge = new ItemAmmo("ammo_12gauge").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_12gauge_incendiary = new ItemAmmo("ammo_12gauge_incendiary").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_12gauge_shrapnel = new ItemAmmo("ammo_12gauge_shrapnel").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_12gauge_du = new ItemAmmo("ammo_12gauge_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_12gauge_sleek = new ItemAmmo("ammo_12gauge_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_12gauge_marauder = new ItemAmmo("ammo_12gauge_marauder").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_22lr = new ItemAmmo("ammo_22lr").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_22lr_ap = new ItemAmmo("ammo_22lr_ap").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_44 = new ItemAmmo("ammo_44").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_ap = new ItemAmmo("ammo_44_ap").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_du = new ItemAmmo("ammo_44_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_phosphorus = new ItemAmmo("ammo_44_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_pip = new ItemAmmo("ammo_44_pip").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_bj = new ItemAmmo("ammo_44_bj").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_silver = new ItemAmmo("ammo_44_silver").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_rocket = new ItemAmmo("ammo_44_rocket").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_44_star = new ItemAmmo("ammo_44_star").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_9mm = new ItemAmmo("ammo_9mm").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_9mm_ap = new ItemAmmo("ammo_9mm_ap").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_9mm_du = new ItemAmmo("ammo_9mm_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_9mm_rocket = new ItemAmmo("ammo_9mm_rocket").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_556 = new ItemAmmo("ammo_556").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_phosphorus = new ItemAmmo("ammo_556_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_ap = new ItemAmmo("ammo_556_ap").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_du = new ItemAmmo("ammo_556_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_star = new ItemAmmo("ammo_556_star").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_sleek = new ItemAmmo("ammo_556_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_tracer = new ItemAmmo("ammo_556_tracer").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_flechette = new ItemAmmo("ammo_556_flechette").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_flechette_incendiary = new ItemAmmo("ammo_556_flechette_incendiary").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_flechette_phosphorus = new ItemAmmo("ammo_556_flechette_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_flechette_du = new ItemAmmo("ammo_556_flechette_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_flechette_sleek = new ItemAmmo("ammo_556_flechette_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_556_k = new ItemAmmo("ammo_556_k").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_50bmg = new ItemAmmo("ammo_50bmg").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_incendiary = new ItemAmmo("ammo_50bmg_incendiary").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_phosphorus = new ItemAmmo("ammo_50bmg_phosphorus").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_explosive = new ItemAmmo("ammo_50bmg_explosive").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_du = new ItemAmmo("ammo_50bmg_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_star = new ItemAmmo("ammo_50bmg_star").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50bmg_sleek = new ItemAmmo("ammo_50bmg_sleek").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_75bolt = new ItemAmmo("ammo_75bolt").setMaxStackSize(8).setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_75bolt_incendiary = new ItemAmmo("ammo_75bolt_incendiary").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(8);
-	public static final Item ammo_75bolt_he = new ItemAmmo("ammo_75bolt_he").setCreativeTab(MainRegistry.weaponTab).setMaxStackSize(8);
-	public static final Item ammo_50bmg_ap = new ItemAmmo("ammo_50bmg_ap").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_5mm = new ItemAmmo("ammo_5mm").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_5mm_explosive = new ItemAmmo("ammo_5mm_explosive").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_5mm_du = new ItemAmmo("ammo_5mm_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_5mm_star = new ItemAmmo("ammo_5mm_star").setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item ammo_50ae = new ItemAmmo("ammo_50ae").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50ae_ap = new ItemAmmo("ammo_50ae_ap").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50ae_du = new ItemAmmo("ammo_50ae_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_50ae_star = new ItemAmmo("ammo_50ae_star").setCreativeTab(MainRegistry.weaponTab);
 
 	public static final Item ammo_arty = new ItemAmmoArty("ammo_arty");
 	public static final Item ammo_himars = new ItemAmmoHIMARS("ammo_himars");
 	
 	public static final Item gun_b92_ammo = new GunB92Cell("gun_b92_ammo").setMaxStackSize(1).setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_bf_ammo = new ItemBase("gun_bf_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_stinger_ammo = new ItemBase("gun_stinger_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_xvl1456_ammo = new ItemCustomLore("gun_xvl1456_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_hp_ammo = new ItemBase("gun_hp_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_dash_ammo = new ItemBase("gun_dash_ammo").setCreativeTab(null);
-	public static final Item gun_defabricator_ammo = new ItemBase("gun_defabricator_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_cryolator_ammo = new ItemBase("gun_cryolator_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_jack_ammo = new ItemBase("gun_jack_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_immolator_ammo = new ItemBase("gun_immolator_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_osipr_ammo = new ItemBase("gun_osipr_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_osipr_ammo2 = new ItemBase("gun_osipr_ammo2").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item gun_emp_ammo = new ItemBase("gun_emp_ammo").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_folly = new ItemAmmo("ammo_folly").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_folly_nuclear = new ItemAmmo("ammo_folly_nuclear").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item ammo_folly_du = new ItemAmmo("ammo_folly_du").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item folly_shell = new ItemBase("folly_shell").setCreativeTab(MainRegistry.partsTab);
-	public static final Item folly_bullet = new ItemBase("folly_bullet").setCreativeTab(MainRegistry.partsTab);
-	public static final Item folly_bullet_nuclear = new ItemBase("folly_bullet_nuclear").setCreativeTab(MainRegistry.partsTab);
-	public static final Item folly_bullet_du = new ItemBase("folly_bullet_du").setCreativeTab(MainRegistry.partsTab);
-	public static final Item gun_calamity_ammo = new ItemCustomLore("gun_calamity_ammo").setCreativeTab(null);
-	public static final Item gun_lacunae_ammo = new ItemCustomLore("gun_lacunae_ammo").setCreativeTab(null);
-	public static final Item gun_mp40_ammo = new ItemBase("gun_mp40_ammo").setCreativeTab(null);
-	public static final Item gun_uzi_ammo = new ItemBase("gun_uzi_ammo").setCreativeTab(null);
-	public static final Item gun_uboinik_ammo = new ItemBase("gun_uboinik_ammo").setCreativeTab(null);
-	public static final Item gun_lever_action_ammo = new ItemBase("gun_lever_action_ammo").setCreativeTab(null);
-	public static final Item gun_bolt_action_ammo = new ItemBase("gun_bolt_action_ammo").setCreativeTab(null);
-	
+
 	public static final Item energy_ball = new ItemBase("energy_ball").setCreativeTab(null);
 	public static final Item charge_railgun = new ItemCustomLore("charge_railgun").setMaxStackSize(1).setCreativeTab(MainRegistry.weaponTab);
-	
-	public static final Item clip_revolver_iron = new ItemClip("clip_revolver_iron").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver = new ItemClip("clip_revolver").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_gold = new ItemClip("clip_revolver_gold").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_lead = new ItemClip("clip_revolver_lead").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_schrabidium = new ItemClip("clip_revolver_schrabidium").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_cursed = new ItemClip("clip_revolver_cursed").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_nightmare = new ItemClip("clip_revolver_nightmare").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_nightmare2 = new ItemClip("clip_revolver_nightmare2").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_pip = new ItemClip("clip_revolver_pip").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_revolver_nopip = new ItemClip("clip_revolver_nopip").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_rpg = new ItemClip("clip_rpg").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_stinger = new ItemClip("clip_stinger").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_fatman = new ItemClip("clip_fatman").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_mirv = new ItemClip("clip_mirv").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_bf = new ItemClip("clip_bf").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_mp40 = new ItemClip("clip_mp40").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_uzi = new ItemClip("clip_uzi").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_uboinik = new ItemClip("clip_uboinik").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_lever_action = new ItemClip("clip_lever_action").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_bolt_action = new ItemClip("clip_bolt_action").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_osipr = new ItemClip("clip_osipr").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_immolator = new ItemClip("clip_immolator").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_cryolator = new ItemClip("clip_cryolator").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_mp = new ItemClip("clip_mp").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_xvl1456 = new ItemClip("clip_xvl1456").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_emp = new ItemClip("clip_emp").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_jack = new ItemClip("clip_jack").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_spark = new ItemClip("clip_spark").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_hp = new ItemClip("clip_hp").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_euthanasia = new ItemClip("clip_euthanasia").setCreativeTab(MainRegistry.weaponTab);
-	public static final Item clip_defabricator = new ItemClip("clip_defabricator").setCreativeTab(MainRegistry.weaponTab);
 
 	public static final Item ammo_container = new ItemClip("ammo_container").setCreativeTab(MainRegistry.weaponTab);
 	

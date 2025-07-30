@@ -668,42 +668,8 @@ public class AssemblerRecipes extends SerializableRecipe {
 		makeRecipe(new ComparableStack(ModItems.missile_endo, 1), new AStack[] { new ComparableStack(ModItems.warhead_thermo_endo, 1), new ComparableStack(ModItems.fuel_tank_large, 1), new ComparableStack(ModItems.thruster_large, 1), new OreDictStack(TI.plate(), 14), new OreDictStack(STEEL.plate(), 20), new OreDictStack(AL.plate(), 12), new ComparableStack(ModItems.circuit, 1, EnumCircuitType.ADVANCED), }, 350);
 		makeRecipe(new ComparableStack(ModItems.missile_exo, 1), new AStack[] { new ComparableStack(ModItems.warhead_thermo_exo, 1), new ComparableStack(ModItems.fuel_tank_large, 1), new ComparableStack(ModItems.thruster_large, 1), new OreDictStack(TI.plate(), 14), new OreDictStack(STEEL.plate(), 20), new OreDictStack(AL.plate(), 12), new ComparableStack(ModItems.circuit, 1, EnumCircuitType.ADVANCED), }, 350);
 
-		makeRecipe(new ComparableStack(ModItems.gun_osipr_ammo, 24), new AStack[] { new OreDictStack(STEEL.plate(), 2), new ComparableStack(Items.REDSTONE, 1), new ComparableStack(Items.GLOWSTONE_DUST, 1), }, 50);
-		makeRecipe(new ComparableStack(ModItems.gun_osipr_ammo2, 1), new AStack[] { new OreDictStack(CMB.plate(), 4), new ComparableStack(Items.REDSTONE, 7), new ComparableStack(ModItems.powder_power, 3), }, 200);
 
-		//AMMO CLIP CRAFTING
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_iron), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_iron_ammo, 24) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_ammo, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_gold), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_gold_ammo, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_lead), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_lead_ammo, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_schrabidium), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_schrabidium_ammo, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_cursed), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_cursed_ammo, 17) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_nightmare), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_nightmare_ammo, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_nightmare2), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_revolver_nightmare2_ammo, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_pip), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_44_pip, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_revolver_nopip), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_44, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_rpg), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_rocket, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_stinger), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_stinger_ammo, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_fatman), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_nuke, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_mirv), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_mirv, 3) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_bf), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_bf_ammo, 2) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_mp40), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_9mm, 32) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_uzi), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_22lr, 32) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_uboinik), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_12gauge, 24) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_lever_action), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_20gauge, 24) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_bolt_action), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_20gauge_slug, 24) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_osipr), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_osipr_ammo, 30) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_immolator), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_immolator_ammo, 64) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_cryolator), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_cryolator_ammo, 64) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_mp), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.ammo_566_gold, 40) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_xvl1456), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_xvl1456_ammo, 64) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_emp), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_emp_ammo, 6) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_jack), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_jack_ammo, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_spark), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_spark_ammo, 4) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_hp), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_hp_ammo, 12) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_euthanasia), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_euthanasia_ammo, 16) }, 40);
-		makeRecipe(new ComparableStack(ModItems.clip_defabricator), new AStack[] { new ComparableStack(ModItems.plate_polymer), new ComparableStack(ModItems.gun_defabricator_ammo, 16) }, 40);
-
+		//GRENADES
 		makeRecipe(new ComparableStack(ModItems.grenade_fire, 1), new AStack[] { new ComparableStack(ModItems.grenade_frag, 1), new OreDictStack(P_RED.dust(), 1), new OreDictStack(CU.plate(), 2), }, 150);
 		makeRecipe(new ComparableStack(ModItems.grenade_shrapnel, 1), new AStack[] { new ComparableStack(ModItems.grenade_frag, 1), new ComparableStack(ModItems.pellet_buckshot, 1), new OreDictStack(STEEL.plate(), 2), }, 150);
 		makeRecipe(new ComparableStack(ModItems.grenade_cluster, 1), new AStack[] { new ComparableStack(ModItems.grenade_frag, 1), new ComparableStack(ModItems.pellet_cluster, 1), new OreDictStack(STEEL.plate(), 2), }, 200);
@@ -711,7 +677,7 @@ public class AssemblerRecipes extends SerializableRecipe {
 		makeRecipe(new ComparableStack(ModItems.grenade_electric, 1), new AStack[] {new ComparableStack(ModItems.grenade_generic, 1), new ComparableStack(ModItems.circuit, 3, EnumCircuitType.CAPACITOR.ordinal()), new OreDictStack(GOLD.plate(), 2), },200);
 		makeRecipe(new ComparableStack(ModItems.grenade_pulse, 4), new AStack[] { new OreDictStack(STEEL.plate(), 1), new OreDictStack(IRON.plate(), 3), new ComparableStack(ModItems.wire_fine, 6, Mats.MAT_MINGRADE.id), new ComparableStack(Items.DIAMOND, 1), }, 300);
 		makeRecipe(new ComparableStack(ModItems.grenade_plasma, 2), new AStack[] { new OreDictStack(STEEL.plate(), 3), new OreDictStack(ALLOY.plate(), 1), new ComparableStack(ModItems.coil_advanced_torus, 1), new ComparableStack(ItemCell.getFullCell(Fluids.DEUTERIUM)), new ComparableStack(ItemCell.getFullCell(Fluids.TRITIUM)), }, 300);
-		makeRecipe(new ComparableStack(ModItems.grenade_tau, 2), new AStack[] { new OreDictStack(PB.plate(), 3), new OreDictStack(ALLOY.plate(), 1), new ComparableStack(ModItems.coil_advanced_torus, 1), new ComparableStack(ModItems.gun_xvl1456_ammo, 1), }, 300);
+		makeRecipe(new ComparableStack(ModItems.grenade_tau, 2), new AStack[] { new OreDictStack(PB.plate(), 3), new OreDictStack(ALLOY.plate(), 1), new ComparableStack(ModItems.coil_advanced_torus, 1), new ComparableStack(ModItems.nothing, 1), }, 300); //gun_xvl1456_ammo
 		makeRecipe(new ComparableStack(ModItems.grenade_schrabidium, 1), new AStack[] { new ComparableStack(ModItems.grenade_flare, 1), new OreDictStack(SA326.dust(), 1), new OreDictStack(OreDictManager.getReflector(), 2), }, 300);
 		makeRecipe(new ComparableStack(ModItems.grenade_nuclear, 1), new AStack[] { new OreDictStack(IRON.plate(), 1), new OreDictStack(STEEL.plate(), 1), new OreDictStack(PU239.nugget(), 2), new ComparableStack(ModItems.wire_fine, 2, Mats.MAT_MINGRADE.id), }, 200);
 		makeRecipe(new ComparableStack(ModItems.grenade_zomg, 1), new AStack[] { new ComparableStack(ModItems.plate_paa, 3), new OreDictStack(OreDictManager.getReflector(), 1), new ComparableStack(ModItems.coil_magnetized_tungsten, 3), new ComparableStack(ModItems.powder_power, 3), new ComparableStack(ModItems.nugget_radspice, 1), }, 300);
@@ -920,34 +886,6 @@ public class AssemblerRecipes extends SerializableRecipe {
 		makeRecipe(new ComparableStack(ModBlocks.block_cap, 1, BlockEnums.EnumBlockCapType.SUNSET.ordinal()), new AStack[] { new ComparableStack(ModItems.cap_sunset, 64), new ComparableStack(ModItems.cap_sunset, 64) }, 10);
 		makeRecipe(new ComparableStack(ModBlocks.block_cap, 1, BlockEnums.EnumBlockCapType.STAR.ordinal()), new AStack[] { new ComparableStack(ModItems.cap_star, 64), new ComparableStack(ModItems.cap_star, 64) }, 10);
 
-		makeRecipe(new ComparableStack(ModItems.ammo_75bolt, 2), new AStack[] {
-				new OreDictStack(STEEL.plate(), 2),
-				new OreDictStack(CU.plate(), 1),
-				new ComparableStack(ModItems.primer_50, 5),
-				new ComparableStack(ModItems.casing_50, 5),
-				new OreDictStack(ANY_HIGHEXPLOSIVE.ingot(), 5),
-				new ComparableStack(ModItems.cordite, 5),
-				new OreDictStack(REDSTONE.dust(), 3)
-			}, 60);
-		makeRecipe(new ComparableStack(ModItems.ammo_75bolt_incendiary, 2), new AStack[] {
-				new OreDictStack(STEEL.plate(), 2),
-				new OreDictStack(CU.plate(), 1),
-				new ComparableStack(ModItems.primer_50, 5),
-				new ComparableStack(ModItems.casing_50, 5),
-				new OreDictStack(ANY_PLASTICEXPLOSIVE.ingot(), 3),
-				new ComparableStack(ModItems.cordite, 3),
-				new OreDictStack(P_WHITE.ingot(), 3)
-			}, 60);
-
-		makeRecipe(new ComparableStack(ModItems.ammo_75bolt_he, 2), new AStack[] {
-				new OreDictStack(STEEL.plate(), 2),
-				new OreDictStack(CU.plate(), 1),
-				new ComparableStack(ModItems.primer_50, 5),
-				new ComparableStack(ModItems.casing_50, 5),
-				new OreDictStack(ANY_PLASTICEXPLOSIVE.ingot(), 5),
-				new ComparableStack(ModItems.cordite, 5),
-				new ComparableStack(Items.REDSTONE, 3)
-			}, 60);
 		makeRecipe(new ComparableStack(ModItems.spawn_worm, 1), new AStack[] {
 				new OreDictStack(TI.block(), 75),
 				new ComparableStack(ModItems.motor, 75),

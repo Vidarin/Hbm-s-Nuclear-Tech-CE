@@ -114,23 +114,6 @@ public class BobmazonOfferFactory {
 		weapons.add(new Offer(new ItemStack(ModItems.detonator), Requirement.ASSEMBLY, 15 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.detonator_laser), Requirement.CHEMICS, 60 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.defuser), Requirement.OIL, 5 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.gun_revolver_ammo, 6), Requirement.OIL, 12 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_357_desh, 6), Requirement.OIL, 36 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_44, 6), Requirement.OIL, 12 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_44_ap, 6), Requirement.OIL, 18 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_5mm, 50), Requirement.OIL, 50 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_5mm_du, 50), Requirement.OIL, 75 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_rocket), Requirement.OIL, 5 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_rocket_incendiary), Requirement.OIL, 8 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_rocket_sleek), Requirement.OIL, 12 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_grenade), Requirement.OIL, 4 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_grenade_incendiary), Requirement.OIL, 6 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_grenade_sleek), Requirement.OIL, 10 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_22lr, 32), Requirement.OIL, 24 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_22lr_ap, 32), Requirement.OIL, 32 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_20gauge, 6), Requirement.OIL, 18 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_20gauge_slug, 6), Requirement.OIL, 20 * inflation));
-		weapons.add(new Offer(new ItemStack(ModItems.ammo_20gauge_flechette, 6), Requirement.OIL, 22 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.grenade_if_generic, 3), Requirement.CHEMICS, 15 * inflation));
 		weapons.add(new Offer(new ItemStack(ModItems.grenade_if_he, 3), Requirement.CHEMICS, 25 * inflation));
 
@@ -173,12 +156,6 @@ public class BobmazonOfferFactory {
 		special.add(new Offer(new ItemStack(ModItems.grenade_kit), Requirement.HIDDEN, 20 * inflation));
 		special.add(new Offer(new ItemStack(ModItems.jetpack_vector), Requirement.HIDDEN, 10 * inflation));
 		special.add(new Offer(new ItemStack(ModItems.jetpack_tank), Requirement.HIDDEN, 3 * inflation));
-		special.add(new Offer(new ItemStack(ModItems.ammo_20gauge, 24), Requirement.HIDDEN, 5 * inflation));
-		special.add(new Offer(new ItemStack(ModItems.ammo_20gauge_incendiary, 24), Requirement.HIDDEN, 7 * inflation));
-		special.add(new Offer(new ItemStack(ModItems.ammo_22lr, 64), Requirement.HIDDEN, 3 * inflation));
-		special.add(new Offer(new ItemStack(ModItems.ammo_22lr_ap, 64), Requirement.HIDDEN, 4 * inflation));
-		special.add(new Offer(new ItemStack(ModItems.ammo_grenade, 6), Requirement.HIDDEN, 4 * inflation));
-		special.add(new Offer(new ItemStack(ModItems.ammo_grenade_sleek, 6), Requirement.HIDDEN, 6 * inflation));
 		special.add(new Offer(new ItemStack(ModItems.gun_kit_1, 10), Requirement.HIDDEN, 1 * inflation));
 		special.add(new Offer(new ItemStack(ModItems.gun_kit_2, 5), Requirement.HIDDEN, 3 * inflation));
 		special.add(new Offer(new ItemStack(ModBlocks.machine_epress, 2), Requirement.HIDDEN, 5 * inflation));

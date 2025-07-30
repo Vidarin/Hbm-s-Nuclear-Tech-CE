@@ -1057,7 +1057,7 @@ public class AmmoPressRecipes extends SerializableRecipe {
             null,
             null));
 
-    ComparableStack shell = new ComparableStack(ModItems.assembly_nuke);
+    ComparableStack shell = new ComparableStack(ModItems.nothing); //assembly_nuke
     ComparableStack tatb = new ComparableStack(ModItems.ball_tatb);
     OreDictStack plutonium = new OreDictStack(PU239.nugget());
     recipes.add(

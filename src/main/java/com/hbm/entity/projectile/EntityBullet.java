@@ -626,7 +626,7 @@ public class EntityBullet extends Entity implements IProjectile {
 		if (!this.world.isRemote && this.inGround && this.arrowShake <= 0) {
 			boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && entityIn.capabilities.isCreativeMode;
 
-			if (this.canBePickedUp == 1 && !entityIn.inventory.addItemStackToInventory(new ItemStack(ModItems.ammo_rocket, 1))) {
+			if (this.canBePickedUp == 1 && !entityIn.inventory.addItemStackToInventory(new ItemStack(ModItems.nothing, 1))) { //ammo_rocket
 				flag = false;
 			}
 

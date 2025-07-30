@@ -45,7 +45,7 @@ public class BulletConfigFactory {
 
 		BulletConfiguration bullet = new BulletConfiguration();
 
-		bullet.ammo = ModItems.gun_revolver_ammo;
+		bullet.ammo = ModItems.ammo_standard;
 		bullet.velocity = 5.0F;
 		bullet.spread = 0.05F;
 		bullet.wear = 10;

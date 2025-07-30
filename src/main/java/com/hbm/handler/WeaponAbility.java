@@ -182,6 +182,7 @@ public abstract class WeaponAbility {
 				if(living.getHealth() <= 0.0F) {
 
 					WeightedRandomObject[] ammo = new WeightedRandomObject[] {
+							/*
 							new WeightedRandomObject(ModItems.ammo_12gauge, 10),
 							new WeightedRandomObject(ModItems.ammo_12gauge_shrapnel, 5),
 							new WeightedRandomObject(ModItems.ammo_12gauge_du, 3),
@@ -206,6 +207,7 @@ public abstract class WeaponAbility {
 							new WeightedRandomObject(ModItems.ammo_rocket_glare, 5),
 							new WeightedRandomObject(ModItems.ammo_rocket_phosphorus, 5),
 							new WeightedRandomObject(ModItems.ammo_rocket_rpc, 1),
+							 */
 							new WeightedRandomObject(ModItems.syringe_metal_stimpak, 25),
 					};
 

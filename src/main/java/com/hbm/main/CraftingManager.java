@@ -195,40 +195,7 @@ public class CraftingManager {
 		addShapelessAuto(new ItemStack(ModItems.ingot_hes, 1), new Object[] { SA326.nugget(), SA326.nugget(), SA326.nugget(), SA326.nugget(), SA326.nugget(), NP237.nugget(), NP237.nugget(), BE.nugget(), BE.nugget() });
 		addShapelessAuto(new ItemStack(ModItems.ingot_les, 1), new Object[] { SA326.nugget(), NP237.nugget(), NP237.nugget(), NP237.nugget(), NP237.nugget(), BE.nugget(), BE.nugget(), BE.nugget(), BE.nugget() });
 
-		//AMMO CLIP UNCRAFTING
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_iron_ammo, 24), new Object[] { new ItemStack(ModItems.clip_revolver_iron) });	
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_ammo, 12), new Object[] { new ItemStack(ModItems.clip_revolver) });
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_gold_ammo, 12), new Object[] { new ItemStack(ModItems.clip_revolver_gold) });
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_lead_ammo, 12), new Object[] { new ItemStack(ModItems.clip_revolver_lead) });
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_schrabidium_ammo, 12), new Object[] { new ItemStack(ModItems.clip_revolver_schrabidium) });
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_cursed_ammo, 17), new Object[] { new ItemStack(ModItems.clip_revolver_cursed) });
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_nightmare_ammo, 6), new Object[] { new ItemStack(ModItems.clip_revolver_nightmare) });
-		addShapelessAuto(new ItemStack(ModItems.gun_revolver_nightmare2_ammo, 6), new Object[] { new ItemStack(ModItems.clip_revolver_nightmare2) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_44_pip, 6), new Object[] { new ItemStack(ModItems.clip_revolver_pip) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_44, 12), new Object[] { new ItemStack(ModItems.clip_revolver_nopip) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_rocket, 6), new Object[] { new ItemStack(ModItems.clip_rpg) });
-		addShapelessAuto(new ItemStack(ModItems.gun_stinger_ammo, 6), new Object[] { new ItemStack(ModItems.clip_stinger) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_nuke, 6), new Object[] { new ItemStack(ModItems.clip_fatman) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_mirv, 3), new Object[] { new ItemStack(ModItems.clip_mirv) });
-		addShapelessAuto(new ItemStack(ModItems.gun_bf_ammo, 2), new Object[] { new ItemStack(ModItems.clip_bf) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_9mm, 32), new Object[] { new ItemStack(ModItems.clip_mp40) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_22lr, 32), new Object[] { new ItemStack(ModItems.clip_uzi) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_12gauge, 24), new Object[] { new ItemStack(ModItems.clip_uboinik) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_20gauge, 24), new Object[] { new ItemStack(ModItems.clip_lever_action) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_20gauge_slug, 24), new Object[] { new ItemStack(ModItems.clip_bolt_action) });
-		addShapelessAuto(new ItemStack(ModItems.gun_osipr_ammo, 30), new Object[] { new ItemStack(ModItems.clip_osipr) });
-		addShapelessAuto(new ItemStack(ModItems.gun_immolator_ammo, 64), new Object[] { new ItemStack(ModItems.clip_immolator) });
-		addShapelessAuto(new ItemStack(ModItems.gun_cryolator_ammo, 64), new Object[] { new ItemStack(ModItems.clip_cryolator) });
-		addShapelessAuto(new ItemStack(ModItems.ammo_566_gold, 40), new Object[] { new ItemStack(ModItems.clip_mp) });
-		addShapelessAuto(new ItemStack(ModItems.gun_xvl1456_ammo, 64), new Object[] { new ItemStack(ModItems.clip_xvl1456) });
-		addShapelessAuto(new ItemStack(ModItems.gun_emp_ammo, 6), new Object[] { new ItemStack(ModItems.clip_emp) });
-		addShapelessAuto(new ItemStack(ModItems.gun_jack_ammo, 12), new Object[] { new ItemStack(ModItems.clip_jack) });
-		addShapelessAuto(new ItemStack(ModItems.gun_spark_ammo, 4), new Object[] { new ItemStack(ModItems.clip_spark) });
-		addShapelessAuto(new ItemStack(ModItems.gun_hp_ammo, 12), new Object[] { new ItemStack(ModItems.clip_hp) });
-		addShapelessAuto(new ItemStack(ModItems.gun_euthanasia_ammo, 16), new Object[] { new ItemStack(ModItems.clip_euthanasia) });
-		addShapelessAuto(new ItemStack(ModItems.gun_defabricator_ammo, 16), new Object[] { new ItemStack(ModItems.clip_defabricator) });
-
-
+		
 		addRecipeAuto(new ItemStack(ModItems.ingot_copper, 9), new Object[] { "#", '#', Item.getItemFromBlock(ModBlocks.block_copper) });
 		addRecipeAuto(new ItemStack(ModItems.fluorite, 9), new Object[] { "#", '#', Item.getItemFromBlock(ModBlocks.block_fluorite) });
 		addRecipeAuto(new ItemStack(ModItems.niter, 9), new Object[] { "#", '#', Item.getItemFromBlock(ModBlocks.block_niter) });
@@ -643,7 +610,7 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModItems.ball_resin), new Object[] { "DD", "DD", 'D', Blocks.YELLOW_FLOWER });
 		
 		addShapelessAuto(new ItemStack(ModItems.missile_taint, 1), new Object[] { ModItems.missile_assembly, new IngredientContainsTag(FluidUtil.getFilledBucket(new FluidStack(ModForgeFluids.mud_fluid, 1000))), ModItems.powder_spark_mix, ModItems.powder_magic });
-		addShapelessAuto(new ItemStack(ModItems.missile_micro, 1), new Object[] { ModItems.missile_assembly, ModItems.ducttape, ModItems.ammo_nuke });
+		addShapelessAuto(new ItemStack(ModItems.missile_micro, 1), new Object[] { ModItems.missile_assembly, ModItems.ducttape, ModItems.nothing }); //ammo_nuke
 		addShapelessAuto(new ItemStack(ModItems.missile_bhole, 1), new Object[] { ModItems.missile_assembly, ModItems.ducttape, ModItems.grenade_black_hole });
 		addShapelessAuto(new ItemStack(ModItems.missile_schrabidium, 1), new Object[] { ModItems.missile_assembly, ModItems.ducttape, ModItems.grenade_aschrab });
 		addShapelessAuto(new ItemStack(ModItems.missile_schrabidium, 1), new Object[] { ModItems.missile_assembly, ModItems.ducttape, ItemCell.getFullCell(Fluids.SAS3), DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED) });
@@ -717,7 +684,7 @@ public class CraftingManager {
 		addRecipeAuto(ItemBombCaller.getStack(EnumCallerType.NAPALM), new Object[] { "TTT", "TRT", "TTT", 'T', ModItems.grenade_gascan, 'R', ModItems.detonator_laser });
 		addRecipeAuto(ItemBombCaller.getStack(EnumCallerType.POISON), new Object[] { "TTT", "TRT", "TTT", 'T', ModItems.pellet_gas, 'R', ModItems.detonator_laser });
 		addRecipeAuto(ItemBombCaller.getStack(EnumCallerType.ORANGE), new Object[] { "TRT", 'T', ModItems.grenade_cloud, 'R', ModItems.detonator_laser });
-		addRecipeAuto(ItemBombCaller.getStack(EnumCallerType.ATOMIC), new Object[] { "TRT", 'T', ModItems.ammo_nuke, 'R', ModItems.detonator_laser });
+		addRecipeAuto(ItemBombCaller.getStack(EnumCallerType.ATOMIC), new Object[] { "TRT", 'T', ModItems.nothing, 'R', ModItems.detonator_laser }); //ammo_nuke
 
 		addRecipeAuto(new ItemStack(ModItems.crystal_xen, 1), new Object[] { "EEE", "EIE", "EEE", 'E', ModItems.powder_power, 'I', EUPH.ingot() });
 
@@ -924,41 +891,10 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModBlocks.steel_roof, 2), new Object[] { "SSS", 'S', STEEL.ingot() });
 		addRecipeAuto(new ItemStack(ModBlocks.steel_scaffold, 8), new Object[] { "SSS", " S ", "SSS", 'S', STEEL.ingot() });
 
-		addRecipeAuto(new ItemStack(ModItems.gun_stinger_ammo, 4), new Object[] { "SS ", "STI", " IR", 'S', STEEL.plate(), 'T', Item.getItemFromBlock(Blocks.TNT), 'I', AL.plate(), 'R', REDSTONE.dust() });
-
-		addRecipeAuto(new ItemStack(ModItems.gun_bf_ammo, 1), new Object[] { " S ", "EBE", " S ", 'S', ModItems.hull_small_steel, 'E', ModItems.powder_power, 'B', ModItems.egg_balefire_shard });
-		addRecipeAuto(new ItemStack(ModItems.gun_xvl1456_ammo, 16), new Object[] { " S ", " R ", " S ", 'S', STEEL.plate(), 'R', new ItemStack(ModItems.rod_zirnox_depleted, 1, EnumZirnoxTypeDepleted.URANIUM_FUEL.ordinal()) });
-		addRecipeAuto(new ItemStack(ModItems.gun_xvl1456_ammo, 16), new Object[] { "SRS", 'S', STEEL.plate(), 'R', new ItemStack(ModItems.rod_zirnox_depleted, 1, EnumZirnoxTypeDepleted.URANIUM_FUEL.ordinal()) });
-		addRecipeAuto(new ItemStack(ModItems.gun_xvl1456_ammo, 16), new Object[] { " S ", " R ", " S ", 'S', STEEL.plate(), 'R', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.gun_xvl1456_ammo, 16), new Object[] { "SRS", 'S', STEEL.plate(), 'R', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.gun_immolator_ammo, 16), new Object[] { "SPS", "PCP", "SPS", 'S', STEEL.plate(), 'C', COAL.dust(), 'P',P_RED.dust() });
-		addRecipeAuto(new ItemStack(ModItems.gun_immolator_ammo, 16), new Object[] { " F ", "SFS", " F ", 'S', STEEL.plate(), 'F', new ItemStack(ModItems.canister_generic, 1, Fluids.DIESEL.getID()) });
-		addRecipeAuto(new ItemStack(ModItems.gun_immolator_ammo, 16), new Object[] { " F ", "SFS", " F ", 'S', STEEL.plate(), 'F', new ItemStack(ModItems.canister_generic, 1, Fluids.KEROSENE.getID()) });
-		addRecipeAuto(new ItemStack(ModItems.gun_immolator_ammo, 24), new Object[] { " F ", "SFS", " F ", 'S', STEEL.plate(), 'F', ModItems.canister_napalm });
-		addRecipeAuto(new ItemStack(ModItems.gun_immolator_ammo, 32), new Object[] { " F ", "SFS", " F ", 'S', STEEL.plate(), 'F', new ItemStack(ModItems.canister_generic, 1, Fluids.NITAN.getID()) });
-		addRecipeAuto(new ItemStack(ModItems.gun_cryolator_ammo, 16), new Object[] { "SPS", "PCP", "SPS", 'S', STEEL.plate(), 'C', KNO.dust(), 'P', Items.SNOWBALL });
-		addRecipeAuto(new ItemStack(ModItems.gun_cryolator_ammo, 16), new Object[] { " F ", "SFS", " F ", 'S', STEEL.plate(), 'F', ModItems.powder_ice });
-		addRecipeAuto(new ItemStack(ModItems.gun_emp_ammo, 8), new Object[] { "IGI", "IPI", "IPI", 'G', GOLD.plate(), 'I', IRON.plate(), 'P', ModItems.powder_power });
-		addShapelessAuto(new ItemStack(ModItems.gun_jack_ammo, 1), new Object[] { ModItems.ammo_12gauge, ModItems.ammo_12gauge, ModItems.ammo_12gauge, ModItems.ammo_12gauge });
-		addRecipeAuto(new ItemStack(ModItems.gun_euthanasia_ammo, 12), new Object[] { "P", "S", "N", 'P', ModItems.powder_poison, 'N', KNO.dust(), 'S', ModItems.syringe_metal_empty });
-		addRecipeAuto(new ItemStack(ModItems.gun_spark_ammo, 4), new Object[] { "PCP", "DDD", "PCP", 'P', PB.plate(), 'C', ModItems.coil_gold, 'D', ModItems.powder_power });
-		addRecipeAuto(new ItemStack(ModItems.gun_hp_ammo, 8), new Object[] { " R ", "BSK", " Y ", 'S', STEEL.plate(), 'K', new ItemStack(Items.DYE, 1, 0), 'R', new ItemStack(Items.DYE, 1, 1), 'B', new ItemStack(Items.DYE, 1, 4), 'Y', new ItemStack(Items.DYE, 1, 11) });
-		addRecipeAuto(new ItemStack(ModItems.gun_defabricator_ammo, 16), new Object[] { "PCP", "DDD", "PCP", 'P', STEEL.plate(), 'C', ModItems.coil_copper, 'D', LI.dust() });
 		addRecipeAuto(new ItemStack(ModItems.gun_b92, 1), new Object[] { "DDD", "SSC", "  R", 'D', ModItems.plate_dineutronium, 'S', STAR.ingot(), 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.BISMOID), 'R', ModItems.nothing });// TODO: add gun_lasrifle
 		addRecipeAuto(new ItemStack(ModItems.gun_b92_ammo, 1), new Object[] { "PSP", "ESE", "PSP", 'P', STEEL.plate(), 'S', STAR.ingot(), 'E', ModItems.powder_spark_mix });
 		addShapelessAuto(new ItemStack(ModItems.weaponized_starblaster_cell, 1), new Object[] { ItemFluidTank.getFullTank(Fluids.ACID), new IngredientContainsTag(GunB92Cell.getFullCell()), CU.wireFine() });
 		addRecipeAuto(new ItemStack(ModItems.gun_vortex, 1), new Object[] { "AS ", "SIP", " SC", 'S', ModItems.plate_armor_lunar, 'I', ModItems.nothing, 'A', ModItems.levitation_unit, 'P', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.CAPACITOR_BOARD), 'C', ModItems.crystal_trixite });
-
-		addShapelessAuto(new ItemStack(ModItems.ammo_44, 1), new Object[] { ModItems.gun_revolver_nopip_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_44_pip, 1), new Object[] { ModItems.gun_revolver_pip_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_50bmg, 1), new Object[] { ModItems.gun_calamity_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_5mm, 1), new Object[] { ModItems.gun_lacunae_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_rocket, 1), new Object[] { ModItems.gun_rpg_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_9mm, 1), new Object[] { ModItems.gun_mp40_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_22lr, 1), new Object[] { ModItems.gun_uzi_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_12gauge, 1), new Object[] { ModItems.gun_uboinik_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_20gauge, 1), new Object[] { ModItems.gun_lever_action_ammo });
-		addShapelessAuto(new ItemStack(ModItems.ammo_20gauge_slug, 1), new Object[] { ModItems.gun_bolt_action_ammo });
 
 		reg2();
 
@@ -967,110 +903,8 @@ public class CraftingManager {
 	public static void reg2(){
 
 		addRecipeAuto(new ItemStack(ModItems.pellet_flechette, 1), new Object[] { " L ", " L ", "LLL", 'L', PB.nugget() });
-		addRecipeAuto(new ItemStack(ModItems.assembly_iron, 24), new Object[] { " I", "GC", " P", 'I', IRON.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_iron, 24), new Object[] { " I", "GC", " P", 'I', IRON.ingot(), 'G', ModItems.ballistite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_steel, 24), new Object[] { " I", "GC", " P", 'I', PB.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_steel, 24), new Object[] { " I", "GC", " P", 'I', PB.ingot(), 'G', ModItems.ballistite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_lead, 24), new Object[] { " I", "GC", " P", 'I', U235.ingot(), 'G', ModItems.cordite, 'C', "paneGlassColorless", 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_lead, 24), new Object[] { " I", "GC", " P", 'I', PU239.ingot(), 'G', ModItems.cordite, 'C', "paneGlassColorless", 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_lead, 24), new Object[] { " I", "GC", " P", 'I', ModItems.trinitite, 'G', ModItems.cordite, 'C', "paneGlassColorless", 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_lead, 24), new Object[] { " I", "GC", " P", 'I', ModItems.nuclear_waste_tiny, 'G', ModItems.cordite, 'C', "paneGlassColorless", 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_gold, 24), new Object[] { " I", "GC", " P", 'I', GOLD.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_schrabidium, 6), new Object[] { " I ", "GCN", " P ", 'I', SA326.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_357, 'P', ModItems.primer_357, 'N', "netherStar" });
-		addRecipeAuto(new ItemStack(ModItems.assembly_nightmare, 24), new Object[] { " I", "GC", " P", 'I', W.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_desh, 24), new Object[] { " I", "GC", " P", 'I', DESH.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_357, 'P', ModItems.primer_357 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_smg, 32), new Object[] { " I", "GC", " P", 'I', PB.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_9, 'P', ModItems.primer_9 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_556, 32), new Object[] { " I", "GC", " P", 'I', STEEL.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_9, 'P', ModItems.primer_9 });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_k, 32), new Object[] { "G", "C", "P", 'G', ANY_GUNPOWDER.dust(), 'C', ModItems.casing_9, 'P', ModItems.primer_9 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_uzi, 32), new Object[] { " I", "GC", " P", 'I', IRON.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_9, 'P', ModItems.primer_9 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_lacunae, 32), new Object[] { " I", "GC", " P", 'I', CU.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_9, 'P', ModItems.primer_9 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_nopip, 24), new Object[] { " I", "GC", " P", 'I', PB.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_44, 'P', ModItems.primer_44 });
-		addRecipeAuto(new ItemStack(ModItems.ammo_12gauge, 12), new Object[] { " I ", "GCL", " P ", 'I', ModItems.pellet_buckshot, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_buckshot, 'P', ModItems.primer_buckshot, 'L', ANY_RUBBER.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge, 12), new Object[] { " I ", "GCL", " P ", 'I', ModItems.pellet_buckshot, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_buckshot, 'P', ModItems.primer_buckshot, 'L', CU.plate() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_slug, 12), new Object[] { " I ", "GCL", " P ", 'I', PB.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_buckshot, 'P', ModItems.primer_buckshot, 'L', CU.plate() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_explosive, 12), new Object[] { " I ", "GCL", " P ", 'I', ModItems.pellet_cluster, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_buckshot, 'P', ModItems.primer_buckshot, 'L', CU.plate() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_flechette, 12), new Object[] { " I ", "GCL", " P ", 'I', ModItems.pellet_flechette, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_buckshot, 'P', ModItems.primer_buckshot, 'L', CU.plate() });
-		addRecipeAuto(new ItemStack(ModItems.gun_revolver_nightmare2_ammo, 12), new Object[] { "I", "C", "P", 'I', ModItems.powder_power, 'C', ModItems.casing_buckshot, 'P', ModItems.primer_buckshot });
-		addRecipeAuto(new ItemStack(ModItems.assembly_calamity, 12), new Object[] { " I ", "GCG", " P ", 'I', PB.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_50, 'P', ModItems.primer_50 });
-		addRecipeAuto(new ItemStack(ModItems.assembly_actionexpress, 12), new Object[] { " I", "GC", " P", 'I', PB.ingot(), 'G', ModItems.cordite, 'C', ModItems.casing_50, 'P', ModItems.primer_50 });
 		addRecipeAuto(new ItemStack(ModItems.ammo_dart, 16), new Object[] { "IPI", "ICI", "IPI", 'I', ModItems.plate_polymer, 'P', IRON.plate(), 'C', ItemFluidTank.getFullBarrel(Fluids.WATZ) });
 
-		addRecipeAuto(new ItemStack(ModItems.ammo_12gauge_incendiary, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_12gauge, 'A',P_RED.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_12gauge_shrapnel, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_12gauge, 'A', ModBlocks.gravel_obsidian });
-		addRecipeAuto(new ItemStack(ModItems.ammo_12gauge_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_12gauge, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_12gauge_sleek, 64), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_12gauge, 'A', ModItems.coin_maskman });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_incendiary, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_20gauge, 'A',P_RED.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_shrapnel, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_20gauge, 'A', ModBlocks.gravel_obsidian });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_caustic, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_20gauge, 'A', ModItems.powder_poison });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_shock, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_20gauge, 'A', DIAMOND.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_wither, 4), new Object[] { "BCB", "CAC", "BCB", 'B', ModItems.ammo_20gauge, 'A', Blocks.SOUL_SAND, 'C', COAL.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_20gauge_sleek, 64), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_20gauge, 'A', ModItems.coin_maskman });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_sleek, 64), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_4gauge, 'A', ModItems.coin_maskman });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_flechette_phosphorus, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_4gauge_flechette, 'A', P_WHITE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_balefire, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_4gauge_explosive, 'A', ModItems.egg_balefire_shard });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_kampf, 2), new Object[] { "G", "R", 'G', ModItems.ammo_rocket, 'R', ModItems.ammo_4gauge_explosive });
-		addRecipeAuto(new ItemStack(ModItems.ammo_44_ap, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_44, 'A', DURA.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_44_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_44, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_44_star, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_44_du, 'A', STAR.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_5mm_explosive, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_5mm, 'A', ANY_PLASTICEXPLOSIVE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_5mm_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_5mm, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_5mm_star, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_5mm_du, 'A', STAR.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_9mm_ap, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_9mm, 'A', DURA.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_9mm_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_9mm, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_22lr_ap, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_22lr, 'A', DURA.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_incendiary, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A',P_RED.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_explosive, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A', ANY_PLASTICEXPLOSIVE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_ap, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A', DURA.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_star, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_50bmg_du, 'A', STAR.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_sleek, 64), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A', ModItems.coin_maskman });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50ae_ap, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50ae, 'A', DURA.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50ae_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50ae, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50ae_star, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_50ae_du, 'A', STAR.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_phosphorus, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556, 'A', P_WHITE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_ap, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556, 'A', DURA.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_star, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_556_du, 'A', STAR.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_sleek, 64), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556, 'A', ModItems.coin_maskman });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_tracer, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556, 'A', Items.REDSTONE });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_flechette, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_556, 'A', ModItems.pellet_flechette });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_flechette_incendiary, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556_flechette, 'A',P_RED.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_flechette_phosphorus, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556_flechette, 'A', P_WHITE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_flechette_du, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556_flechette, 'A', U238.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_flechette_sleek, 64), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556_flechette, 'A', ModItems.coin_maskman });
-
-		addRecipeAuto(new ItemStack(ModItems.folly_bullet, 1), new Object[] { " S ", "STS", "SMS", 'S', STAR.ingot(), 'T', ModItems.powder_magic, 'M', ModBlocks.block_meteor });
-		addRecipeAuto(new ItemStack(ModItems.folly_bullet_nuclear, 1), new Object[] { " N ", "UTU", "UTU", 'N', ModItems.ammo_nuke, 'U', IRON.ingot(), 'T', W.block() });
-		addRecipeAuto(new ItemStack(ModItems.folly_bullet_du, 1), new Object[] { " U ", "UDU", "UTU", 'U', U238.block(), 'D', DESH.block(), 'T', W.block() });
-		addRecipeAuto(new ItemStack(ModItems.folly_shell, 1), new Object[] { "IPI", "IPI", "IMI", 'I', IRON.ingot(), 'P', IRON.plate(), 'M', ModItems.primer_50 });
-		addRecipeAuto(new ItemStack(ModItems.ammo_folly, 1), new Object[] { " B ", "MEM", " S ", 'B', ModItems.folly_bullet, 'M', ModItems.powder_magic, 'E', ModItems.powder_power, 'S', ModItems.folly_shell });
-		addRecipeAuto(new ItemStack(ModItems.ammo_folly_nuclear, 1), new Object[] { " B ", "EEE", " S ", 'B', ModItems.folly_bullet_nuclear, 'E', ModBlocks.det_charge, 'S', ModItems.folly_shell });
-		addRecipeAuto(new ItemStack(ModItems.ammo_folly_du, 1), new Object[] { " B ", "EEE", " S ", 'B', ModItems.folly_bullet_du, 'E', ModBlocks.det_charge, 'S', ModItems.folly_shell });
-
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket, 1), new Object[] { " T ", "GCG", " P ", 'T', Blocks.TNT, 'G', ModItems.rocket_fuel, 'C', ModItems.casing_50, 'P', ModItems.primer_50 });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket, 2), new Object[] { " T ", "GCG", " P ", 'T', ANY_PLASTICEXPLOSIVE.ingot(), 'G', ModItems.rocket_fuel, 'C', ModItems.casing_50, 'P', ModItems.primer_50 });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_he, 1), new Object[] { "G", "R", 'G', ANY_PLASTICEXPLOSIVE.ingot(), 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_incendiary, 1), new Object[] { "G", "R", 'G',P_RED.dust(), 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_emp, 1), new Object[] { "G", "R", 'G', DIAMOND.dust(), 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_shrapnel, 1), new Object[] { "G", "R", 'G', ModItems.pellet_buckshot, 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_glare, 1), new Object[] { "GGG", "GRG", "GGG", 'G', Items.REDSTONE, 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_toxic, 1), new Object[] { "G", "R", 'G', ModItems.pellet_gas, 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_nuclear, 1), new Object[] { " P ", "NRN", " P ", 'P', PU239.nugget(), 'N', OreDictManager.getReflector(), 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_rpc, 2), new Object[] { "BP ", "CBH", " DR", 'B', ModItems.blades_steel, 'P', STEEL.plate(), 'C', new ItemStack(ModItems.canister_generic, 1, Fluids.DIESEL.getID()), 'H', ModItems.hull_small_steel, 'D', ModItems.piston_selenium, 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_rpc, 2), new Object[] { "BP ", "CBH", " DR", 'B', ModItems.blades_steel, 'P', STEEL.plate(), 'C', new ItemStack(ModItems.canister_generic, 1, Fluids.PETROIL.getID()), 'H', ModItems.hull_small_steel, 'D', ModItems.piston_selenium, 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_rpc, 2), new Object[] { "BP ", "CBH", " DR", 'B', ModItems.blades_steel, 'P', STEEL.plate(), 'C', new ItemStack(ModItems.canister_generic, 1, Fluids.BIOFUEL.getID()), 'H', ModItems.hull_small_steel, 'D', ModItems.piston_selenium, 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_sleek, 64), new Object[] { "GGG", "GRG", "GGG", 'G', ModItems.ammo_rocket, 'R', ModItems.coin_maskman });
-
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade, 2), new Object[] { " T ", "GCI", 'T', ANY_HIGHEXPLOSIVE.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'I', IRON.plate() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_tracer, 2), new Object[] { " T ", "GCI", " P ", 'T', LAPIS.dust(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'I', IRON.plate() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_he, 2), new Object[] { "GIG", 'G', ModItems.ammo_grenade, 'I', ANY_PLASTICEXPLOSIVE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_incendiary, 2), new Object[] { "GIG", 'G', ModItems.ammo_grenade, 'I',P_RED.dust() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_toxic, 2), new Object[] { "GIG", 'G', ModItems.ammo_grenade, 'I', ModItems.powder_poison });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_concussion, 2), new Object[] { "GIG", 'G', ModItems.ammo_grenade, 'I', Items.GLOWSTONE_DUST });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_nuclear, 2), new Object[] { " P ", "GIG", " P ", 'G', ModItems.ammo_grenade, 'I', ModItems.neutron_reflector, 'P', PU239.nugget() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_finned, 1), new Object[] { "G", "R", 'G', Items.FEATHER, 'R', ModItems.ammo_grenade });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_kampf, 2), new Object[] { "G", "R", 'G', ModItems.ammo_rocket, 'R', ModItems.ammo_grenade });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_sleek, 64), new Object[] { "GGG", "GRG", "GGG", 'G', ModItems.ammo_grenade, 'R', ModItems.coin_maskman });
 
 		addRecipeAuto(new ItemStack(ModItems.stamp_357, 1), new Object[] { "RSR", "III", " C ", 'R', REDSTONE.dust(), 'S', ModItems.stamp_iron_flat, 'I', ModItems.plate_polymer, 'C', ModItems.casing_357 });
 		addRecipeAuto(new ItemStack(ModItems.stamp_44, 1), new Object[] { "RSR", "III", " C ", 'R', REDSTONE.dust(), 'S', ModItems.stamp_iron_flat, 'I', ModItems.plate_polymer, 'C', ModItems.casing_44 });
@@ -1772,10 +1606,6 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModItems.nugget_mercury, 8), new Object[] { "#", '#', ModItems.bottle_mercury });
 		addRecipeAuto(new ItemStack(ModItems.egg_balefire, 1), new Object[] { "###", "###", "###", '#', ModItems.egg_balefire_shard });
 		addRecipeAuto(new ItemStack(ModItems.egg_balefire_shard, 9), new Object[] { "#", '#', ModItems.egg_balefire });
-		addRecipeAuto(new ItemStack(ModItems.ammo_44_phosphorus, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_44, 'A', P_WHITE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_phosphorus, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A', P_WHITE.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_phosphorus, 1), new Object[] { "G", "R", 'G', P_WHITE.ingot(), 'R', ModItems.ammo_rocket });
-		addRecipeAuto(new ItemStack(ModItems.ammo_grenade_phosphorus, 2), new Object[] { "GIG", 'G', ModItems.ammo_grenade, 'I', P_WHITE.ingot() });
 
 		addRecipeAuto(new ItemStack(ModBlocks.block_u233, 1), new Object[] { "###", "###", "###", '#',U233.ingot() });
 		addRecipeAuto(new ItemStack(ModBlocks.block_u235, 1), new Object[] { "###", "###", "###", '#', U235.ingot() });
@@ -1805,12 +1635,6 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModItems.ingot_thorium_fuel, 9), new Object[] { "#", '#', ModBlocks.block_thorium_fuel });
 		addRecipeAuto(new ItemStack(ModItems.ingot_solinium, 9), new Object[] { "#", '#', SA327.block() });
 		addRecipeAuto(new ItemStack(ModItems.ingot_schrabidium_fuel, 9), new Object[] { "#", '#', ModBlocks.block_schrabidium_fuel });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge, 12), new Object[] { " I ", "GCL", " P ", 'I', ModItems.pellet_buckshot, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'L', ANY_RUBBER.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_slug, 12), new Object[] { " I ", "GCL", " P ", 'I', PB.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'L', ANY_RUBBER.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_flechette, 12), new Object[] { " I ", "GCL", " P ", 'I', ModItems.pellet_flechette, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'L', ANY_RUBBER.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_explosive, 4), new Object[] { " I ", "GCL", " P ", 'I', Blocks.TNT, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'L', ANY_RUBBER.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_explosive, 6), new Object[] { " I ", "GCL", " P ", 'I', ANY_PLASTICEXPLOSIVE.ingot(), 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'L', ANY_RUBBER.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_semtex, 4), new Object[] { " I ", "GCL", " P ", 'I', ModBlocks.det_miner, 'G', ANY_SMOKELESS.dust(), 'C', ModItems.casing_50, 'P', ModItems.primer_50, 'L', ANY_RUBBER.ingot() });
 
 		addRecipeAuto(new ItemStack(ModBlocks.block_mox_fuel, 1), new Object[] { "###", "###", "###", '#', ModItems.ingot_mox_fuel });
 		addRecipeAuto(new ItemStack(ModBlocks.block_lithium, 1), new Object[] { "###", "###", "###", '#', LI.ingot() });
@@ -1869,11 +1693,6 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModItems.ingot_fiberglass, 9), new Object[] { "#", '#', FIBER.block() });
 		addRecipeAuto(new ItemStack(ModItems.ingot_cobalt, 9), new Object[] { "#", '#', CO.block() });
 		addRecipeAuto(new ItemStack(ModItems.mechanism_special, 1), new Object[] { "PCI", "ISS", "PCI", 'P',ModItems.plate_desh, 'C', ModItems.coil_advanced_alloy, 'I', STAR.ingot(), 'S', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED) });
-		addRecipeAuto(new ItemStack(ModItems.ammo_fuel, 1), new Object[] { " P ", "BDB", " P ", 'P', STEEL.plate(), 'B', W.bolt(), 'D', new ItemStack(ModItems.canister_generic, 1, Fluids.DIESEL.getID()) });
-		addRecipeAuto(new ItemStack(ModItems.ammo_fuel_napalm, 1), new Object[] { " P ", "BDB", " P ", 'P', STEEL.plate(), 'B', W.bolt(), 'D', ModItems.canister_napalm });
-		addRecipeAuto(new ItemStack(ModItems.ammo_fuel_phosphorus, 1), new Object[] { "CPC", "CDC", "CPC", 'C', COAL.dust(), 'P', P_WHITE.ingot(), 'D', ModItems.ammo_fuel });
-		addRecipeAuto(new ItemStack(ModItems.ammo_fuel_gas, 1), new Object[] { "PDP", "BDB", "PDP", 'P', STEEL.plate(), 'B', W.bolt(), 'D', ModItems.pellet_gas });
-		addRecipeAuto(new ItemStack(ModItems.ammo_fuel_vaporizer, 1), new Object[] { "PSP", "SNS", "PSP", 'P', P_WHITE.ingot(), 'S', ModItems.crystal_sulfur, 'N', ModItems.ammo_fuel_napalm });
 		addRecipeAuto(new ItemStack(ModBlocks.det_cord, 8), new Object[] { "TNT", "NGN", "TNT", 'T', STEEL.plate(), 'N', KNO.dust(), 'G', ANY_GUNPOWDER.dust() });
 		addRecipeAuto(new ItemStack(ModBlocks.det_charge, 1), new Object[] { "PDP", "DTD", "PDP", 'P', STEEL.plate(), 'D', ModBlocks.det_cord, 'T', ANY_PLASTICEXPLOSIVE.ingot() });
 		addRecipeAuto(new ItemStack(ModBlocks.det_n2, 1), new Object[] { "PDT", "DDD", "PDP", 'P', ModItems.plate_steel, 'D', ModItems.n2_charge, 'T', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED) });
@@ -2308,17 +2127,6 @@ public class CraftingManager {
 
 		addRecipeAuto(new ItemStack(ModItems.charge_railgun), new Object[] { "PDP", "DDD", "PDP", 'P', STEEL.plate(), 'D', ItemFluidTank.getFullTank(Fluids.DEUTERIUM) });
 
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_canister, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_4gauge_kampf, 'A', ModItems.pellet_canister });
-		addRecipeAuto(new ItemStack(ModItems.ammo_44_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_44, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_5mm_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_5mm, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_9mm_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_9mm, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_22lr_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_22lr, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50bmg_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50bmg, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_50ae_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_50ae, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_556_flechette_chlorophyte, 8), new Object[] { "BBB", "BAB", "BBB", 'B', ModItems.ammo_556_flechette, 'A', ModItems.pellet_chlorophyte });
-		addRecipeAuto(new ItemStack(ModItems.ammo_rocket_canister, 1), new Object[] { "G", "R", 'G', ModItems.pellet_canister, 'R', ModItems.ammo_rocket });
-
 		addShapelessAuto(new ItemStack(ModItems.circuit, 48, EnumCircuitType.PCB.ordinal()), new Object[] { ModBlocks.fusion_core });
 		addShapelessAuto(new ItemStack(ModBlocks.fusion_heater), new Object[] { ModBlocks.fusion_hatch });
 		addShapelessAuto(new ItemStack(ModItems.energy_core), new Object[] { ModItems.fusion_core, ModItems.fuse });
@@ -2346,7 +2154,6 @@ public class CraftingManager {
 
 		ItemStack infinity = new ItemStack(Items.ENCHANTED_BOOK);
 		EnchantmentUtil.addEnchantment(infinity, Enchantments.INFINITY, 1);
-		addRecipeAuto(infinity, new Object[] { "SBS", "BDB", "SBS", 'S', ModItems.ammo_50bmg_star, 'B', ModItems.ammo_5mm_star, 'D', ModItems.powder_magic });
 		ItemStack unbreaking = new ItemStack(Items.ENCHANTED_BOOK);
 		EnchantmentUtil.addEnchantment(unbreaking, Enchantments.UNBREAKING, 3);
 		addRecipeAuto(unbreaking, new Object[] { "SBS", "BDB", "SBS", 'S', BIGMT.ingot(), 'B', ModItems.plate_armor_lunar, 'D', ModItems.powder_magic });
@@ -2406,9 +2213,6 @@ public class CraftingManager {
 		addRecipeAuto(new ItemStack(ModBlocks.fireworks, 1), new Object[] { "PPP", "PPP", "WIW", 'P', Items.PAPER, 'W', KEY_PLANKS, 'I', IRON.ingot() });
 
 		addRecipeAuto(new ItemStack(ModItems.pellet_claws, 1), new Object[] { " X ", "X X", " XX", 'X', STEEL.plate() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_claw, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_4gauge, 'A', ModItems.pellet_claws });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_vampire, 4), new Object[] { "ABA", "BAB", "ABA", 'B', ModItems.ammo_4gauge, 'A', ModItems.toothpicks });
-		addRecipeAuto(new ItemStack(ModItems.ammo_4gauge_void, 4), new Object[] { " B ", "BAB", " B ", 'B', ModItems.ammo_4gauge, 'A', ModItems.pellet_charged });
 
 		addRecipeAuto(new ItemStack(ModItems.hev_battery, 4), new Object[] { " W ", "IEI", "ICI", 'W', GOLD.wireFine(), 'I', ModItems.plate_polymer, 'E', ModItems.powder_power, 'C', CO.dust() });
 		addRecipeAuto(new ItemStack(ModItems.hev_battery, 4), new Object[] { " W ", "ICI", "IEI", 'W', GOLD.wireFine(), 'I', ModItems.plate_polymer, 'E', ModItems.powder_power, 'C', CO.dust() });
@@ -2670,29 +2474,7 @@ public class CraftingManager {
 		addShapelessAuto(new ItemStack(ModBlocks.railing_end_flipped_self), new Object[] { ModBlocks.railing_end_self });
 		addShapelessAuto(new ItemStack(ModBlocks.railing_end_flipped_floor), new Object[] { ModBlocks.railing_end_floor });
 
-		addRecipeAuto(new ItemStack(ModItems.assembly_nuke, 1), new Object[] { " WP", "SEP", " WP", 'W', AL.wireFine(), 'P', STEEL.plate(), 'S', ModItems.hull_small_steel, 'E', ANY_HIGHEXPLOSIVE.ingot() })	;
-		
 		//Mini Nuke
-		addRecipeAuto(new ItemStack(ModItems.ammo_nuke, 1), new Object[] { "P", "S", "P", 'P', PU239.nugget(), 'S', ModItems.assembly_nuke });
-		addRecipeAuto(new ItemStack(ModItems.ammo_nuke_low, 1), new Object[] { "P", "S", 'P', PU239.nugget(), 'S', ModItems.assembly_nuke });
-		addRecipeAuto(new ItemStack(ModItems.ammo_nuke_high, 1), new Object[] { "PPP", "PSP", "PPP", 'P', PU239.nugget(), 'S', ModItems.assembly_nuke });
-		addRecipeAuto(new ItemStack(ModItems.ammo_nuke_tots, 1), new Object[] { "PPP", "PIP", "PPP", 'P', ModItems.pellet_cluster, 'I', PU239.ingot() });
-		addRecipeAuto(new ItemStack(ModItems.ammo_nuke_safe, 1), new Object[] { "G", "N", 'G', Items.GLOWSTONE_DUST, 'N', ModItems.ammo_nuke_low });
-		addRecipeAuto(new ItemStack(ModItems.ammo_nuke_pumpkin, 1), new Object[] { " T ", "TST", " T ", 'T', Blocks.TNT, 'S', ModItems.assembly_nuke });
-
-		//MIRV recycling
-		addShapelessAuto(new ItemStack(ModItems.ammo_nuke, 6), new Object[] { ModItems.ammo_mirv });
-		addShapelessAuto(new ItemStack(ModItems.ammo_nuke_low, 6), new Object[] { ModItems.ammo_mirv_low });
-		addShapelessAuto(new ItemStack(ModItems.ammo_nuke_high, 6), new Object[] { ModItems.ammo_mirv_high });
-		addShapelessAuto(new ItemStack(ModItems.ammo_nuke_safe, 6), new Object[] { ModItems.ammo_mirv_safe });
-
-		//MIRV
-		addRecipeAuto(new ItemStack(ModItems.ammo_mirv, 1), new Object[] { "NNN", "CDS", "NNN", 'N', ModItems.ammo_nuke, 'C', ModItems.cap_aluminium, 'D', ModBlocks.det_cord, 'S', ModItems.hull_small_steel });
-		addRecipeAuto(new ItemStack(ModItems.ammo_mirv_low, 1), new Object[] { "NNN", "CDS", "NNN", 'N', ModItems.ammo_nuke_low, 'C', ModItems.cap_aluminium, 'D', ModBlocks.det_cord, 'S', ModItems.hull_small_steel });
-		addRecipeAuto(new ItemStack(ModItems.ammo_mirv_high, 1), new Object[] { "NNN", "CDS", "NNN", 'N', ModItems.ammo_nuke_high, 'C', ModItems.cap_aluminium, 'D', ModBlocks.det_cord, 'S', ModItems.hull_small_steel });
-		addRecipeAuto(new ItemStack(ModItems.ammo_mirv_safe, 1), new Object[] { "NNN", "CDS", "NNN", 'N', ModItems.ammo_nuke_safe, 'C', ModItems.cap_aluminium, 'D', ModBlocks.det_cord, 'S', ModItems.hull_small_steel });
-		//since the milk part of the recipe isn't realy present in the MIRV's effect, it might as well be replaced with something more sensible, i.e. duct tape
-		addRecipeAuto(new ItemStack(ModItems.ammo_mirv_special, 1), new Object[] { "CBC", "MCM", "CBC", 'C', ModItems.canned_jizz, 'B', ModItems.gun_bf_ammo, 'M', ModItems.ammo_mirv });
 
 		addShapelessAuto(new ItemStack(ModItems.ball_fireclay, 4), new Object[] { Items.CLAY_BALL, Items.CLAY_BALL, Items.CLAY_BALL, AL.dust()});
 		addShapelessAuto(new ItemStack(ModItems.ball_fireclay, 4), new Object[] { Items.CLAY_BALL, Items.CLAY_BALL, Items.CLAY_BALL, AL.ore()});

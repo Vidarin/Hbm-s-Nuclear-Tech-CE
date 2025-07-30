@@ -121,7 +121,7 @@ public class ItemGlitch extends Item implements IBatteryItem {
 				player.sendMessage(new TextComponentTranslation("chat.glitch.17"));
 				break;
 			case 18:
-				player.inventory.addItemStackToInventory(new ItemStack(ModItems.ammo_20gauge, 12));
+				player.inventory.addItemStackToInventory(new ItemStack(ModItems.nothing, 12)); //ammo_12gauge
 				player.sendMessage(new TextComponentTranslation("chat.glitch.18"));
 				break;
 			case 19:

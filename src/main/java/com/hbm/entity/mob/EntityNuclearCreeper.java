@@ -271,7 +271,7 @@ public class EntityNuclearCreeper extends EntityMob implements IRadiationImmune 
 				this.dropItem(ModItems.fusion_core, 1);
 			}
 			if(i == 10)
-				this.dropItem(ModItems.ammo_nuke, 1);
+				this.dropItem(ModItems.nothing, 1); //ammo_nuke
 		}
 	}
 

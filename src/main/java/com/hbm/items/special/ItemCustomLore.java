@@ -465,8 +465,7 @@ public class ItemCustomLore extends Item {
 			this == ModItems.plate_saturnite || 
 			
 			this == new ItemStack(ModItems.circuit, 1, ItemEnums.EnumCircuitType.BISMOID.ordinal()).getItem() ||
-			this == ModItems.gun_revolver_schrabidium_ammo || 
-			this == ModItems.powder_unobtainium || 
+			this == ModItems.powder_unobtainium ||
 			this == ModItems.nugget_unobtainium || 
 			this == ModItems.ingot_unobtainium || 
 			this == ModItems.nugget_unobtainium_greater || 
@@ -487,9 +486,7 @@ public class ItemCustomLore extends Item {
 		if(this == ModItems.bathwater_mk2 || 
 			this == ModItems.plate_paa || 
 			this == ModItems.cladding_paa || 
-			this == ModItems.ammo_566_gold || 
-			this == ModItems.gun_revolver_cursed_ammo || 
-			this == ModItems.powder_power || 
+			this == ModItems.powder_power ||
 			this == ModItems.powder_yellowcake || 
 			this == ModItems.billet_australium || 
 			this == ModItems.billet_australium_greater || 

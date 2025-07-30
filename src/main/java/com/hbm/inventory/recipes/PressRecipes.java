@@ -95,26 +95,7 @@ public class PressRecipes {
 //		addRecipe(StampType.CIRCUIT, new ComparableStack(ModItems.circuit_tantalium_raw), new ItemStack(ModItems.circuit_tantalium));
 		addRecipe(StampType.CIRCUIT, new OreDictStack(SI.billet()),	DictFrame.fromOne(ModItems.circuit, ItemEnums.EnumCircuitType.SILICON));
 
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_iron), new ItemStack(ModItems.gun_revolver_iron_ammo));
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_steel), new ItemStack(ModItems.gun_revolver_ammo));
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_lead), new ItemStack(ModItems.gun_revolver_lead_ammo));
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_gold), new ItemStack(ModItems.gun_revolver_gold_ammo));
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_schrabidium), new ItemStack(ModItems.gun_revolver_schrabidium_ammo));
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_nightmare), new ItemStack(ModItems.gun_revolver_nightmare_ammo));
-		addRecipe(StampType.C357, new ComparableStack(ModItems.assembly_desh), new ItemStack(ModItems.ammo_357_desh));
-		addRecipe(StampType.C357, new OreDictStack(STEEL.ingot()), new ItemStack(ModItems.gun_revolver_cursed_ammo));
-
-		addRecipe(StampType.C44, new ComparableStack(ModItems.assembly_nopip), new ItemStack(ModItems.ammo_44));
-
-		addRecipe(StampType.C9, new ComparableStack(ModItems.assembly_smg), new ItemStack(ModItems.ammo_9mm));
-		addRecipe(StampType.C9, new ComparableStack(ModItems.assembly_uzi), new ItemStack(ModItems.ammo_22lr));
-		addRecipe(StampType.C9, new OreDictStack(GOLD.ingot()), new ItemStack(ModItems.ammo_566_gold));
-		addRecipe(StampType.C9, new ComparableStack(ModItems.assembly_lacunae), new ItemStack(ModItems.ammo_5mm));
-		addRecipe(StampType.C9, new ComparableStack(ModItems.assembly_556), new ItemStack(ModItems.ammo_556));
-
-		addRecipe(StampType.C50, new ComparableStack(ModItems.assembly_calamity), new ItemStack(ModItems.ammo_50bmg));
-		addRecipe(StampType.C50, new ComparableStack(ModItems.assembly_actionexpress), new ItemStack(ModItems.ammo_50ae));
-	}
+		}
 
 	@NotNull
     private static StampType getStampType(@NotNull Item stamp){
