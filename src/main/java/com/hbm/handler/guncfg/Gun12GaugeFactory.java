@@ -157,12 +157,12 @@ public class Gun12GaugeFactory {
 		config.config.add(BulletConfigSyncingUtil.G12_DU);
 		return config;
 	}
-	/*
+	
 	public static BulletConfiguration get12GaugeConfig() {
 		
 		BulletConfiguration bullet = BulletConfigFactory.standardBuckshotConfig();
 		
-		bullet.ammo = ModItems.ammo_12gauge;
+		bullet.ammo = ModItems.nothing; //ammo_12gauge
 		bullet.dmgMin = 1;
 		bullet.dmgMax = 4;
 		
@@ -173,7 +173,7 @@ public class Gun12GaugeFactory {
 		
 		BulletConfiguration bullet = BulletConfigFactory.standardBuckshotConfig();
 		
-		bullet.ammo = ModItems.ammo_12gauge_incendiary;
+		bullet.ammo = ModItems.nothing; //ammo_12gauge_incendiary
 		bullet.wear = 15;
 		bullet.dmgMin = 1;
 		bullet.dmgMax = 4;
@@ -186,7 +186,7 @@ public class Gun12GaugeFactory {
 		
 		BulletConfiguration bullet = BulletConfigFactory.standardBuckshotConfig();
 		
-		bullet.ammo = ModItems.ammo_12gauge_shrapnel;
+		bullet.ammo = ModItems.nothing; //ammo_12gauge_shrapnel
 		bullet.wear = 15;
 		bullet.dmgMin = 2;
 		bullet.dmgMax = 6;
@@ -201,7 +201,7 @@ public class Gun12GaugeFactory {
 		
 		BulletConfiguration bullet = BulletConfigFactory.standardBuckshotConfig();
 		
-		bullet.ammo = ModItems.ammo_12gauge_du;
+		bullet.ammo = ModItems.nothing; //ammo_12gauge_du
 		bullet.wear = 20;
 		bullet.dmgMin = 3;
 		bullet.dmgMax = 8;
@@ -215,7 +215,7 @@ public class Gun12GaugeFactory {
 		
 		BulletConfiguration bullet = BulletConfigFactory.standardBuckshotConfig();
 		
-		bullet.ammo = ModItems.ammo_12gauge_marauder;
+		bullet.ammo = ModItems.nothing; //ammo_12gauge_marauder
 		bullet.wear = 20;
 		bullet.dmgMin = 100;
 		bullet.dmgMax = 500;
@@ -238,9 +238,8 @@ public class Gun12GaugeFactory {
 
 		BulletConfiguration bullet = BulletConfigFactory.standardAirstrikeConfig();
 
-		bullet.ammo = ModItems.ammo_12gauge_sleek;
+		bullet.ammo = ModItems.nothing; //ammo_12gauge_sleek
 
 		return bullet;
 	}
-	 */
 }
