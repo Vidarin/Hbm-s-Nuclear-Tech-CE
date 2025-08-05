@@ -22,6 +22,7 @@ import com.hbm.world.feature.DepthDeposit;
 import com.hbm.world.feature.OilSpot;
 import com.hbm.world.generator.CellularDungeonFactory;
 import com.hbm.world.generator.DungeonToolbox;
+import com.hbm.world.phased.AbstractPhasedStructure;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockRotatedPillar;
@@ -44,6 +45,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
+import java.util.List;
 import java.util.Random;
 
 import static com.hbm.blocks.PlantEnums.EnumFlowerPlantType.*;
@@ -267,9 +269,14 @@ public class HbmWorldGen implements IWorldGenerator {
 		if (chance > 0 && rand.nextInt(chance) == 0) {
 			int x = i + rand.nextInt(16);
 			int z = j + rand.nextInt(16);
-			int y = world.getHeight(x, z);
-
-			structure.generate(world, rand, new BlockPos(x, y, z));
+			if (structure instanceof AbstractPhasedStructure phased) {
+				phased.generate(world, rand, new BlockPos(x, 0, z));
+			} else {
+				int y = world.getHeight(x, z);
+				if (y > 0 && y < world.getHeight()) {
+					structure.generate(world, rand, new BlockPos(x, y, z));
+				}
+			}
 		}
 	}
 
@@ -351,35 +358,35 @@ public class HbmWorldGen implements IWorldGenerator {
 			Biome biome = world.getBiome(new BlockPos(i, 0, j));
 			
 			if (biome.getDefaultTemperature() >= 0.8F && biome.getRainfall() > 0.7F) {
-				generateAStructure(world, rand, i, j, new Radio01(), parseInt(CompatibilityConfig.radioStructure.get(dimID)));
+				generateAStructure(world, rand, i, j, Radio01.INSTANCE, parseInt(CompatibilityConfig.radioStructure.get(dimID)));
 			}
 			if (biome.getDefaultTemperature() <= 0.5F) {
-				generateAStructure(world, rand, i, j, new Antenna(), parseInt(CompatibilityConfig.antennaStructure.get(dimID)));
+				generateAStructure(world, rand, i, j, Antenna.INSTANCE, parseInt(CompatibilityConfig.antennaStructure.get(dimID)));
 			}
 			if (!biome.canRain() && biome.getDefaultTemperature() >= 2F) {
-				generateAStructure(world, rand, i, j, new DesertAtom001(), parseInt(CompatibilityConfig.atomStructure.get(dimID)));
+				generateAStructure(world, rand, i, j, DesertAtom001.INSTANCE, parseInt(CompatibilityConfig.atomStructure.get(dimID)));
 			}
 
 			if (biome.getDefaultTemperature() < 2F || biome.getDefaultTemperature() > 1.0F) {
-				generateAStructure(world, rand, i, j, new Relay(), parseInt(CompatibilityConfig.relayStructure.get(dimID)));
+				generateAStructure(world, rand, i, j, Relay.INSTANCE, parseInt(CompatibilityConfig.relayStructure.get(dimID)));
 			}
 			if (biome.getDefaultTemperature() > 1.8F) {
-				generateAStructure(world, rand, i, j, new Barrel(), parseInt(CompatibilityConfig.barrelStructure.get(dimID)));
+				generateAStructure(world, rand, i, j, Barrel.INSTANCE, parseInt(CompatibilityConfig.barrelStructure.get(dimID)));
 			}
 			if (!biome.canRain() && biome.getDefaultTemperature() >= 2F) {
 				if (rand.nextInt(2) == 0) {
-					generateAStructure(world, rand, i, j, new Vertibird(), parseInt(CompatibilityConfig.vertibirdStructure.get(dimID)));
+					generateAStructure(world, rand, i, j, Vertibird.INSTANCE, parseInt(CompatibilityConfig.vertibirdStructure.get(dimID)));
 				} else {
-					generateAStructure(world, rand, i, j, new CrashedVertibird(), parseInt(CompatibilityConfig.vertibirdStructure.get(dimID)));
+					generateAStructure(world, rand, i, j, CrashedVertibird.INSTANCE, parseInt(CompatibilityConfig.vertibirdStructure.get(dimID)));
 				}
 			}
 			if (biome.getDefaultTemperature() < 1F || biome.getDefaultTemperature() > 1.8F) {
-				generateAStructure(world, rand, i, j, new Satellite(), parseInt(CompatibilityConfig.satelliteStructure.get(dimID)));
+				generateAStructure(world, rand, i, j, Satellite.INSTANCE, parseInt(CompatibilityConfig.satelliteStructure.get(dimID)));
 			}
-			generateAStructure(world, rand, i, j, new Spaceship(), parseInt(CompatibilityConfig.spaceshipStructure.get(dimID)));
-			generateAStructure(world, rand, i, j, new Bunker(), parseInt(CompatibilityConfig.bunkerStructure.get(dimID)));
-			generateAStructure(world, rand, i, j, new Silo(), parseInt(CompatibilityConfig.siloStructure.get(dimID)));
-			generateAStructure(world, rand, i, j, new Factory(), parseInt(CompatibilityConfig.factoryStructure.get(dimID)));
+			generateAStructure(world, rand, i, j, Spaceship.INSTANCE, parseInt(CompatibilityConfig.spaceshipStructure.get(dimID)));
+			generateAStructure(world, rand, i, j, Bunker.INSTANCE, parseInt(CompatibilityConfig.bunkerStructure.get(dimID)));
+			generateAStructure(world, rand, i, j, Silo.INSTANCE, parseInt(CompatibilityConfig.siloStructure.get(dimID)));
+			generateAStructure(world, rand, i, j, Factory.INSTANCE, parseInt(CompatibilityConfig.factoryStructure.get(dimID)));
 			generateAStructure(world, rand, i, j, new Dud(), parseInt(CompatibilityConfig.dudStructure.get(dimID)));
 			if(biome.getTempCategory() == Biome.TempCategory.WARM && biome.getTempCategory() != Biome.TempCategory.OCEAN)
 				generateSellafieldPool(world, rand, i, j, dimID);
@@ -419,7 +426,7 @@ public class HbmWorldGen implements IWorldGenerator {
 				int x = i + rand.nextInt(16);
 				int y = rand.nextInt(256);
 				int z = j + rand.nextInt(16);
-				new LibraryDungeon().generate(world, rand, new BlockPos(x, y, z));
+				LibraryDungeon.INSTANCE.generate(world, rand, new BlockPos(x, y, z));
 			}
 
 			if(biome.getRainfall() > 2F){
@@ -430,7 +437,7 @@ public class HbmWorldGen implements IWorldGenerator {
 					int y = world.getHeight(x, z);
 
 					if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.GRASS)
-						new Geyser().generate(world, rand, new BlockPos(x, y, z));
+						Geyser.INSTANCE.generate(world, rand, new BlockPos(x, y, z));
 				}
 			}
 
@@ -442,7 +449,7 @@ public class HbmWorldGen implements IWorldGenerator {
 					int y = world.getHeight(x, z);
 
 					if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.SAND)
-						new GeyserLarge().generate(world, rand, new BlockPos(x, y, z));
+						GeyserLarge.INSTANCE.generate(world, rand, new BlockPos(x, y, z));
 				}
 			}
 

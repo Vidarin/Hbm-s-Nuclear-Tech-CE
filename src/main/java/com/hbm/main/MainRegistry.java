@@ -57,6 +57,7 @@ import com.hbm.world.ModBiomes;
 import com.hbm.world.PlanetGen;
 import com.hbm.world.feature.SchistStratum;
 import com.hbm.world.generator.CellularDungeonFactory;
+import com.hbm.world.phased.PhasedStructureGenerator;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.RangedAttribute;
@@ -411,7 +412,7 @@ public class MainRegistry {
         FluidCombustionRecipes.registerFluidCombustionRecipes();
         HbmDetox.init();
         NTMBatteryCapabilityHandler.initialize();
-
+        MinecraftForge.EVENT_BUS.register(PhasedStructureGenerator.INSTANCE);
 
         //Drillgon200: expand the max entity radius for the hunter chopper
         if (World.MAX_ENTITY_RADIUS < 5)

@@ -1,29 +1,25 @@
 package com.hbm.world;
 
 import com.hbm.blocks.ModBlocks;
+import com.hbm.world.phased.AbstractPhasedStructure;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.MutableBlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class Geyser extends WorldGenerator {
-
+@SuppressWarnings({"PointlessArithmeticExpression"})
+public class Geyser extends AbstractPhasedStructure {
+	public static final Geyser INSTANCE = new Geyser();
+	private Geyser() {}
 	@Override
-	public boolean generate(World world, Random rand, BlockPos pos) {
-		int i = rand.nextInt(1);
-
-		if (i == 0) {
-			generate_r0(world, rand, pos.getX(), pos.getY(), pos.getZ());
-		}
-
-		return true;
-
+	public void buildStructure(@NotNull LegacyBuilder builder, @NotNull Random rand) {
+		generate_r0(builder, rand, 0, 0, 0);
 	}
 
-	public boolean generate_r0(World world, Random rand, int x, int y, int z) {
+	public boolean generate_r0(LegacyBuilder world, Random rand, int x, int y, int z) {
 
 		MutableBlockPos pos = new BlockPos.MutableBlockPos();
 		x -= 2;
